@@ -6,7 +6,7 @@ Python（英式发音：/ˈpaɪθən/；美式发音：/ˈpaɪθɑːn/）是由�
 
 <img src="./asserts/introduction/tiobe_index.png" style="zoom:40%;">
 
-<img src="./asserts/introduction/github_pypl_and_ieee_spectrum.png" style="zoom:60%;">
+<img src="./asserts/introduction/very_long_term_history.png" style="zoom:60%;">
 
 ## Python编年史
 
