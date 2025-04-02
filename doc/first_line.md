@@ -46,3 +46,15 @@ Author: CoderLiLe
 # print('hello, world')
 print("你好，世界！")
 ```
+
+## 二进制与字符编码
+
+```python
+print(chr(0b100111001011000))  # 0b表示为十六进制
+
+print(ord('乘'))  # 十进制为20056
+```
+结果如下：
+
+	乘
+	20056
