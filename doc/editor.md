@@ -46,7 +46,7 @@ Visual Studio Code 是由微软开发能够在 Windows、 Linux 和 macOS 等操
 
 <img src="./asserts/editor/visual_studio_code.png" style="zoom:50%;">
 
-## Jupyter Notebook
+## 交互式文本编辑器 - Jupyter Notebook
 ① 编辑器推荐：Jupyter Notebook。
 
 ② 初学 Python，而不是已经熟练掌握 Python 去开发、去做项目，所以需要的是一个轻量级的编辑器，简单、方便、好用，而不是复杂的编辑器。
