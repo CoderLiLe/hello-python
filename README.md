@@ -8,3 +8,6 @@
 * [变量](https://github.com/CoderLiLe/hello-python/blob/main/doc/variable.md)
 * [判断语句](https://github.com/CoderLiLe/hello-python/blob/main/doc/judgment_statement.md)
 * [循环](https://github.com/CoderLiLe/hello-python/blob/main/doc/cycle.md)
+* [函数](https://github.com/CoderLiLe/hello-python/blob/main/doc/function.md)
+* [列表](doc/list.md)
+* [元组字典字符串](https://github.com/CoderLiLe/hello-python/blob/main/doc/tuple_dict_str.md)
