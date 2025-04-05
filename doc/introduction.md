@@ -1,14 +1,14 @@
-#  初识Python
+# 初识Python
 
 ## Python简介
 
 Python（英式发音：/ˈpaɪθən/；美式发音：/ˈpaɪθɑːn/）是由荷兰人吉多·范罗苏姆（Guido von Rossum）发明的一种编程语言，是目前世界上最受欢迎和拥有最多用户的编程语言。Python 强调代码的可读性和语法的简洁性，相较于 C、C++、Java 这些同样影响深远的编程语言，Python 让使用者能够用更少的代码表达自己的意图。下面是 TIOBE Index 给出的 Python 语言的排名：
 
-<img src="./asserts/introduction/tiobe_index.png" style="zoom:40%;">
+<img src="./assets/introduction/tiobe_index.png" style="zoom:40%;">
 
-<img src="./asserts/introduction/very_long_term_history.png" style="zoom:60%;">
+<img src="./assets/introduction/very_long_term_history.png" style="zoom:60%;">
 
-<img src="./asserts/introduction/programming_language_hall_of_fame.png" style="zoom:60%;">
+<img src="./assets/introduction/programming_language_hall_of_fame.png" style="zoom:60%;">
 
 ## Python编年史
 

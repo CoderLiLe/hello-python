@@ -121,7 +121,7 @@ if action_str == "1" or action_str == "2" or action_str == "3":
 - 使用**字典**记录每一种名片的详细信息
 - 使用 列表统一记录所有**名片字典**
 
-![名片管理系统全局列表](asserts/card_management/img13.png)
+![名片管理系统全局列表](assets/card_management/img13.png)
 
 **定义名片列表变量**
 

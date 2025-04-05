@@ -44,7 +44,7 @@ ipython
 
 Visual Studio Code 是由微软开发能够在 Windows、 Linux 和 macOS 等操作系统上运行的代码编辑神器。它支持语法高亮、自动补全、多点编辑、运行调试等一系列便捷功能，而且能够支持多种编程语言。如果大家要选择一款高级文本编辑工具，强烈推荐 Visual Studio Code，关于它的[下载](https://code.visualstudio.com/)、安装和使用，有兴趣的读者可以自行研究。
 
-<img src="./asserts/editor/visual_studio_code.png" style="zoom:50%;">
+<img src="./assets/editor/visual_studio_code.png" style="zoom:50%;">
 
 ## 交互式文本编辑器 - Jupyter Notebook
 ① 编辑器推荐：Jupyter Notebook。
@@ -59,7 +59,7 @@ Visual Studio Code 是由微软开发能够在 Windows、 Linux 和 macOS 等操
 
 ⑥ Jupyter Notebook 非常方便将笔记、代码、运行结果整合在一起，有写个人博客的感觉，完成一个作品的成就感。
 
-<img src="./asserts/editor/jupter_notebook.png" style="zoom:50%;">
+<img src="./assets/editor/jupter_notebook.png" style="zoom:50%;">
 
 ⑦ Jupyter Notebook 文件可以直接上传 Github，当做云笔记，直接在线可读，以后需要调用时，可以根据目录直接查询笔记。
 
@@ -67,38 +67,38 @@ Visual Studio Code 是由微软开发能够在 Windows、 Linux 和 macOS 等操
 
 如果用 Python 语言开发商业项目，我们推荐大家使用更为专业的工具 PyCharm。PyCharm 是由捷克一家名为 [JetBrains](https://www.jetbrains.com/) 的公司针对 Python 语言提供的集成开发环境（IDE)。所谓集成开发环境，通常是指提供了编写代码、运行代码、调试代码、分析代码、版本控制等一系列强大功能和便捷操作的开发工具，因此特别适合用于商业项目的开发。我们可以在 JetBrains 公司的官方网站上找到 PyCharm 的[下载链接](<https://www.jetbrains.com/pycharm/download>)，如下图所示。
 
-<img src="./asserts/editor/pycharm_download_page.png" style="zoom:40%;">
+<img src="./assets/editor/pycharm_download_page.png" style="zoom:40%;">
 
 官方提供了两个 PyCharm 的版本，一个是免费的社区版（Community Edition），功能相对弱小，但对于初学者来说是完全够用的；另一个是付费的专业版（Professional Edition），功能非常强大，但需要按年或按月支付费用，新用户可以免费试用30天时间。PyCharm 的安装没有任何难度，运行下载的安装程序，几乎全部使用默认设置进行安装就可以了。对于使用 Windows 系统的小伙伴，其中有一个步骤可以按照下图所示勾选“创建桌面快捷方式”和“在右键菜单中添加"Open Folder as Project"”就可以了。
 
-<img src="./asserts/editor/using_pycharm_1.png" style="zoom:50%;">
+<img src="./assets/editor/using_pycharm_1.png" style="zoom:50%;">
 
 第一次运行 PyCharm 时，在提示你导入 PyCharm 设置的界面上直接选择“Do not import settings”，然后我们就可以看到如下图所示的欢迎界面。此处，我们可以先点击“Customize”选项对 PyCharm 做一些个性化的设置。
 
-<img src="./asserts/editor/using_pycharm_2.png" style="zoom:45%;">
+<img src="./assets/editor/using_pycharm_2.png" style="zoom:45%;">
 
 接下来，我们可以在“Projects”选项中点击“New Project”来创建一个新的项目，此处还可以“打开已有项目”或“从版本控制服务器（VCS）获取项目”，如下图所示。
 
-<img src="./asserts/editor/using_pycharm_3.png" style="zoom:45%;">
+<img src="./assets/editor/using_pycharm_3.png" style="zoom:45%;">
 
 创建项目的时候需要指定项目的路径并创建”虚拟环境“，我们建议每个 Python 都在自己专属的虚拟环境中运行。如果你的系统上还没 Python 环境，那么 PyCharm 会提供官网的下载链接，当你点击“Create”按钮创建项目时，它会联网下载 Python 解释器，如下图所示。
 
-<img src="./asserts/editor/using_pycharm_4.png" style="zoom:45%;">
+<img src="./assets/editor/using_pycharm_4.png" style="zoom:45%;">
 
 当然，我们并不推荐这么做。在系统有 Python 环境的情况下，PyCharm 通常会自动发现 Python 解释器的位置并以此为基础创建虚拟环境，所以大家看到的画面应该如下图所示。
 
-<img src="./asserts/editor/using_pycharm_5.png" style="zoom:45%;">
+<img src="./assets/editor/using_pycharm_5.png" style="zoom:45%;">
 
 > **说明**：上面的截图来自于 Windows 系统，如果使用 macOS 系统，你看到的项目路径和 Python 解释器路径会跟上面有所不同。
 
 创建好项目后会出现如下图所示的画面，我们可以通过在项目文件夹上点击鼠标右键，选择“New”菜单下的“Python File”来创建一个 Python 文件，在给文件命名时建议使用英文字母和下划线的组合，创建好的 Python 文件会自动打开，进入可编辑的状态。
 
-<img src="./asserts/editor/using_pycharm_6.png" style="zoom:50%;">
+<img src="./assets/editor/using_pycharm_6.png" style="zoom:50%;">
 
 接下来，我们可以在代码窗口编写我们的 Python 代码。写好代码后，可以在窗口中点击鼠标右键，选择“Run”菜单项来运行代码，下面的“Run”窗口会显示代码的执行结果，如下图所示。
 
-<img src="./asserts/editor/using_pycharm_7.png" style="zoom:50%;">
+<img src="./assets/editor/using_pycharm_7.png" style="zoom:50%;">
 
 到这里，我们的第一个 Python 程序已经运转起来了，很酷吧！对了，PyCharm 有一个叫“每日小贴士”的弹窗，会教给你一些使用 PyCharm 的小技巧，如下图所示。如果不需要，直接关闭就可以了；如果不希望它再次出现，在关闭前可以勾选“Don't show tips on startup”。
 
-<img src="./asserts/editor/using_pycharm_8.png" style="zoom:50%;">
+<img src="./assets/editor/using_pycharm_8.png" style="zoom:50%;">

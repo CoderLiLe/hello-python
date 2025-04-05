@@ -117,14 +117,14 @@ xiaoming = {
 }
 ```
 
-![字典示意图](asserts/tuple_dict_str/img9.png)
+![字典示意图](assets/tuple_dict_str/img9.png)
 
 ## 3.2 字典常用操作
 
 - 在 `ipython` 中定义一个字典，例如：`d={}`
 - 输入 `d.` 按下 `Tab` 键，`ipython` 会提示字典能够使用的函数如下：
 
-![字典常用方法](asserts/tuple_dict_str/img10.png)
+![字典常用方法](assets/tuple_dict_str/img10.png)
 
 ## 3.3 循环遍历
 
@@ -183,11 +183,11 @@ for c in string:
 	print(c)
 ```
 
-![字符串示意图](asserts/tuple_dict_str/img11.png)
+![字符串示意图](assets/tuple_dict_str/img11.png)
 
 ## 4.2 字符串的常用操作
 
-![字符串方法](asserts/tuple_dict_str/img12.png)
+![字符串方法](assets/tuple_dict_str/img12.png)
 
 >提示：正是因为 python 内置提供的方法足够多，才使得在开发时，能够针对字符串进行更加灵活的操作！应对更多的开发需求
 

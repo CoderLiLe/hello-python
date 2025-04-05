@@ -50,14 +50,14 @@
 name_list = ["zhangsan", "lisi", "wangwu"]
 ```
 
-![列表](asserts/list/img6.jpg)
+![列表](assets/list/img6.jpg)
 
 ### 1.2 列表常用操作
 
 - 在 `ipython3` 中定义一个 **列表**，例如：`name_list = []`
 - 输入 `name_list` 按下 `TAB` 键，`ipython` 会提示 **列表** 能够使用的 **方法** 如下：
 
-![列表方法](asserts/list/img7.png)
+![列表方法](assets/list/img7.png)
 
 | 序号 | 分类 | 关键字/函数/方法        | 说明                     |
 | ---- | ---- | ----------------------- | ------------------------ |
@@ -86,7 +86,7 @@ del name_list
 
 - **关键字** 是 Python 内置的、具有特殊意义的标识符
 
-![Python内置关键字](asserts/list/img8.png)
+![Python内置关键字](assets/list/img8.png)
 
 >关键字后面不需要使用括号
 
