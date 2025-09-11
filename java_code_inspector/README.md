@@ -1,5 +1,6 @@
 
 ## 项目结构
+```
 java_code_inspector/
 ├── src/
 │   └── java_inspector.py
@@ -12,6 +13,7 @@ java_code_inspector/
 │   └── test_config.json
 ├── run_tests.py
 └── requirements.txt
+```
 
 ## 运行测试命令
 ```
