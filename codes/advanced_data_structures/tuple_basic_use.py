@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Tuple Basic Use
+Python代码示例
+"""
+
 info_tuple = ("zhangsan", 18, 1.75)
 
 # 1. 取值和取索引

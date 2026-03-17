@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Update Global Variables
+Python代码示例
+"""
+
 # 全局变量
 num = 10
 

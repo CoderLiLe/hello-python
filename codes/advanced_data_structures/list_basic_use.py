@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+List Basic Use
+Python代码示例
+"""
+
 name_list = ["zhangsan", "lisi", "wangwu"]
 
 # 1. 取值和取索引

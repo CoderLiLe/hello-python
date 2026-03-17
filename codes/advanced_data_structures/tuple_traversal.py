@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Tuple Traversal
+Python代码示例
+"""
+
 from distutils.log import info
 
 

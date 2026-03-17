@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Func Return Value
+Python代码示例
+"""
+
 def sum_2_num(num1, num2):
     """对两个数字求和"""
 

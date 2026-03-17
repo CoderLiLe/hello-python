@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Recur Func Features
+Python代码示例
+"""
+
 def print_num(num):
 
     print(num)

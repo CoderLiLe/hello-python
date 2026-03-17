@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Comment
+Python代码示例
+"""
+
 # 这是一个注释
 print("hello world")
 

@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Define Func Default Parameter
+Python代码示例
+"""
+
 def print_info(name, gender=True):
 
     gender_text = "男生"

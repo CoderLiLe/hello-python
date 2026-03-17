@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Func Modify Parameters
+Python代码示例
+"""
+
 def demo(num_list: list):
     print("函数内部的代码")
 

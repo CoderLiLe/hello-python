@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Even Sum
+Python代码示例
+"""
+
 # 计算 0~100 之间 所有 偶数 的累计求和结果
 i, sum = 0, 0
 while i <= 100:

@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Format String
+Python代码示例
+"""
+
 info_tuple = ("小明", 21, 1.85)
 
 # 格式化字符串后面的 `()` 本质上就是元组

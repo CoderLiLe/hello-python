@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Multi Parameters
+Python代码示例
+"""
+
 def demo(num, *nums, **person):
 
     print(num)

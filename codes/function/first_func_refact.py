@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+First Func Refact
+Python代码示例
+"""
+
 name = "小明"
 
 # Python 解释器知道下方定义了一个函数

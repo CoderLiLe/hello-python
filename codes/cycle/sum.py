@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Sum
+Python代码示例
+"""
+
 # 计算 0！100 之间所有数字的累计求和结果
 # 0. 定义最终结果的变量
 result = 0

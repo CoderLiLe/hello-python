@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Recur Func Sum
+Python代码示例
+"""
+
 # 1. 定义一个函数 `sum_numbers`
 # 2. 能够接受一个 `num` 的整数参数
 # 3. 计算 `1+2+……num` 的结果

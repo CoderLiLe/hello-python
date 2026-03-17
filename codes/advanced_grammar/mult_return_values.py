@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Mult Return Values
+Python代码示例
+"""
+
 def measure():
     """测量温度"""
 

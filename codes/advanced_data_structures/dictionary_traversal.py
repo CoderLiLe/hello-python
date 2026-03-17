@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Dictionary Traversal
+Python代码示例
+"""
+
 xiaoming_dict = {"name":"小明",
                 "qq":"123456",
                 "phone":"10086"}

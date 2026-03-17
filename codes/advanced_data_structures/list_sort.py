@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+List Sort
+Python代码示例
+"""
+
 import re
 from unicodedata import name
 

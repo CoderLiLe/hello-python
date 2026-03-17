@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Del  Keyword
+Python代码示例
+"""
+
 name = ["宋江", "卢俊义", "吴用", "公孙胜"]
 
 # 使用 del 关键字(delete)删除列表元素

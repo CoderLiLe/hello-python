@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Local Variables
+Python代码示例
+"""
+
 def demo1():
 
     # 定义一个局部变量

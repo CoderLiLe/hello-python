@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Cards Main
+Python代码示例
+"""
+
 # 无限循环，由用户决定何时结束
 import cards_tools
 while True:

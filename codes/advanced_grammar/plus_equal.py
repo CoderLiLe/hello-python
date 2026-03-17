@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Plus Equal
+Python代码示例
+"""
+
 def demo(num, num_list: list):
 
     print("函数开始")

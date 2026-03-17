@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+List Traversal
+Python代码示例
+"""
+
 name_list = ["小李广-花荣", "呼保义-宋江", "玉麒麟-卢俊义", "黑旋风-李逵"]
 
 # 使用迭代遍历列表

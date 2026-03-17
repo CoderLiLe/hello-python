@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Default Func Parameters
+Python代码示例
+"""
+
 gl_list = [4, 8, 2]
 
 # 默认按照升序排序 - 较常用

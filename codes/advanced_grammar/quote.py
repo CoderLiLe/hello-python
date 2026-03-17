@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Quote
+Python代码示例
+"""
+
 def test(num):
     
     print("在函数内部 %d 对应的内存地址是 %d" % (num, id(num)))

@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Multiplication Table
+Python代码示例
+"""
+
 def multiple_table():
     # 打印九九乘法表
     row = 1

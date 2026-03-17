@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Continue
+Python代码示例
+"""
+
 i = 0
 # 输出 0~10 不包括3
 while i < 10:

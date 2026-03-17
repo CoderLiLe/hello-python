@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Unpack Tuple Dict
+Python代码示例
+"""
+
 def demo(*args, **kwargs):
 
     print(args)

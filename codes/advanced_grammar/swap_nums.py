@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Swap Nums
+Python代码示例
+"""
+
 a = 6
 b = 100
 

@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Iterating Dict List
+Python代码示例
+"""
+
 students = [
     {"name":"阿土"},
     {"name":"小李"}

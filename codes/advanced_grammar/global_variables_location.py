@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Global Variables Location
+Python代码示例
+"""
+
 # 注意：再开发时，应该把模块中所有的全局变量
 # 定义再所有函数上方，就可以保证所有函数
 # 都能够正常访问到每一个全局变量

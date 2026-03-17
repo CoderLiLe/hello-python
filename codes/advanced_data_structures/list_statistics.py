@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+List Statistics
+Python代码示例
+"""
+
 name_list = ["张三", "李四", "王五", "张三"]
 
 # len(length 长度) 函数可以统计列表中元素的总数

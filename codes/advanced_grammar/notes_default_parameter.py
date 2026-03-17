@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Notes Default Parameter
+Python代码示例
+"""
+
 def print_info(name, title="学生", gender=True):
 
     """

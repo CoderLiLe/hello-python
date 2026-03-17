@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+String Statistical
+Python代码示例
+"""
+
 hello_str = "hello hello"
 
 # 1.统计字符串长度

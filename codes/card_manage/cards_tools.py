@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Cards Tools
+Python代码示例
+"""
+
 # 记录所有的名片字典
 card_list = []
 

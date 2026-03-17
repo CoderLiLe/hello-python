@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+String Alignment
+Python代码示例
+"""
+
 # 要求：顺序并且居中对齐输出以下内容
 poem = ["\n\t登鹳雀楼 ",
         "王之涣",

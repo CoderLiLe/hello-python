@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Print Star
+Python代码示例
+"""
+
 # 在控制台连续输出五行 * ，每一行星号的数量次数递增
 # *
 # **

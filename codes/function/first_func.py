@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+First Func
+Python代码示例
+"""
+
 # 注意：定义好函数之后，只表示这个函数封装了一段代码而已
 # 如果步主动调用函数，函数是不会主动执行的
 def say_hello():

@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Nested Func Calls
+Python代码示例
+"""
+
 def test1():
 
     print("*" * 50)

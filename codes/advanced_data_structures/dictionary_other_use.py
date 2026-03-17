@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Dictionary Other Use
+Python代码示例
+"""
+
 d = {"姓名":"燕青", "绰号":"小乙哥"}
 
 # 1.统计键值对数量

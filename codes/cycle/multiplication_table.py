@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Multiplication Table
+Python代码示例
+"""
+
 # 打印九九乘法表
 row = 1
 while row <= 9:

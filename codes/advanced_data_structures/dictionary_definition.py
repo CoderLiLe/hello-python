@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Dictionary Definition
+Python代码示例
+"""
+
 # 字典是一个无序的数据集合
 xiaoming = {
     "name":"宋江",

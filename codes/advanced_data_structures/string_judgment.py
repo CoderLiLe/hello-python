@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+String Judgment
+Python代码示例
+"""
+
 # 1.判断空白字符
 space_str = "   \t\n\r "
 print(space_str.isspace())  # True

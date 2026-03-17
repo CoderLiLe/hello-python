@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Dictionary Basic Use
+Python代码示例
+"""
+
 d = {"姓名":"燕青", "绰号":"浪子"}
 
 # 1.取值

@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Divider Module
+Python代码示例
+"""
+
 def print_line(char, times):
 
     print(char * times)

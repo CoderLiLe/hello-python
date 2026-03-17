@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Cycle
+Python代码示例
+"""
+
 # 打印 5 遍 Hello Python
 # 1. 定义一个整数变量，记录循环次数
 i = 1

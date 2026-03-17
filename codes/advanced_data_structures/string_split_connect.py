@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+String Split Connect
+Python代码示例
+"""
+
 # 要求
 # 1.将字符串中的空白字符全部去掉
 # 2.再使用 " " 作为分隔符，拼接成一个整齐的字符串

@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Multi Parameter Sum
+Python代码示例
+"""
+
 import argparse
 
 

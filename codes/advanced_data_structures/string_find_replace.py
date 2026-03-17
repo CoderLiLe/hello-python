@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+String Find Replace
+Python代码示例
+"""
+
 hello_str = "hello world"
 
 # 1.判断是否可以指定字符串开始
