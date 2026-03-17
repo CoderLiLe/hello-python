@@ -1,0 +1,2214 @@
+{
+  "timestamp": "2026-03-17T23:57:59.930336",
+  "project": "hello-python",
+  "metrics": {
+    "overall_score": 60.0,
+    "structure_score": 100.0,
+    "code_quality_score": 0.0,
+    "documentation_score": 100.0,
+    "automation_score": 100.0,
+    "scores": {
+      "structure": 100.0,
+      "code_quality": 0.0,
+      "documentation": 100.0,
+      "automation": 100.0
+    }
+  },
+  "issues": [
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "optimize_project.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "optimize_project.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "optimize_project.py",
+      "description": "行过长: [67, 272]",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "java_code_inspector/run_tests.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "java_code_inspector/run_tests.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "java_code_inspector/tests/test_ java_inspector.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "java_code_inspector/tests/test_ java_inspector.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "java_code_inspector/tests/test_ java_inspector.py",
+      "description": "行过长: [104]",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "java_code_inspector/tests/__init__.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "java_code_inspector/tests/__init__.py",
+      "description": "缺少shebang或使用python3",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "java_code_inspector/src/java_inspector.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "java_code_inspector/src/java_inspector.py",
+      "description": "类型提示覆盖率低: 43.3%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "java_code_inspector/src/java_inspector.py",
+      "description": "行过长: [275, 397, 439, 455, 474, 502, 507, 532, 568, 600]",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "tests/test_basic.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "tests/test_basic.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "examples/basic_usage.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "scripts/quality_report.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "scripts/quality_report.py",
+      "description": "行过长: [113, 238, 318, 343, 356, 363, 482, 546, 547, 548, 549, 739]",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_data_structures/dictionary_traversal.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_data_structures/format_string.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_data_structures/string_definition_traversal.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_data_structures/dictionary_basic_use.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_data_structures/del _keyword.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_data_structures/string_find_replace.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_data_structures/string_statistical.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_data_structures/string_judgment.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_data_structures/iterating_dict_list.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_data_structures/tuple_basic_use.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_data_structures/list_statistics.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_data_structures/list_basic_use.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_data_structures/list_traversal.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_data_structures/string_split_connect.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_data_structures/tuple_traversal.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_data_structures/string_alignment.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_data_structures/dictionary_definition.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_data_structures/dictionary_other_use.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_data_structures/dictionary_application.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_data_structures/list_sort.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/unpack_tuple_dict.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/unpack_tuple_dict.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/swap_nums.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/global_variables2.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/global_variables2.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/global_variables.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/global_variables.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/update_global_variables.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/update_global_variables.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/func_modify_parameters.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/func_modify_parameters.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/quote.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/quote.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/global_variables_location.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/global_variables_location.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/parameter_passing.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/parameter_passing.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/recur_func_features.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/recur_func_features.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/notes_default_parameter.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/notes_default_parameter.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/local_variables.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/local_variables.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/define_func_default_parameter.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/define_func_default_parameter.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/default_func_parameters.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/global_variable_name.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/global_variable_name.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/recur_func_sum.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/recur_func_sum.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/multi_parameters.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/multi_parameters.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/plus_equal.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/plus_equal.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/multi_parameter_sum.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/multi_parameter_sum.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/mult_return_values.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/advanced_grammar/mult_return_values.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/cycle/even_sum.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/cycle/cycle.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/cycle/multiplication_table.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/cycle/print_end.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/cycle/continue.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/cycle/cycle_print_star.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/cycle/sum.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/cycle/escape_character.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/cycle/print_star.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/cycle/break.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/function/experience_module.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/function/first_func.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/function/first_func.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/function/multiplication_table.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/function/multiplication_table.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/function/import_func.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/function/divider_module.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/function/divider_module.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/function/first_func_refact.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/function/first_func_refact.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/function/print_line.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/function/print_line.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/function/nested_func_calls.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/function/nested_func_calls.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/function/print_multiple_line.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/function/print_multiple_line.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/function/func_return_value.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/function/func_return_value.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/function/function_parameters.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/function/function_parameters.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/python_basic/comment.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/python_basic/print.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/card_manage/cards_main.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/card_manage/cards_tools.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "codes/card_manage/cards_tools.py",
+      "description": "类型提示覆盖率低: 0.0%",
+      "suggestion": "修复代码质量问题"
+    },
+    {
+      "type": "code_quality",
+      "severity": "medium",
+      "file": "src/hello_python/__init__.py",
+      "description": "缺少编码声明",
+      "suggestion": "修复代码质量问题"
+    }
+  ],
+  "recommendations": [
+    "修复Python代码质量问题",
+    "提高类型提示覆盖率",
+    "安装flake8进行代码风格检查",
+    "安装black进行代码格式化"
+  ],
+  "structure": {
+    "directories": [
+      "java_code_inspector",
+      "config",
+      "tests",
+      "docs",
+      "examples",
+      "scripts",
+      ".github",
+      "doc",
+      "codes",
+      "src",
+      "java_code_inspector/tests",
+      "java_code_inspector/src",
+      "java_code_inspector/tests/test_file",
+      "doc/assets",
+      "doc/assets/card_management",
+      "doc/assets/oop_inherit",
+      "doc/assets/oop_encapsulation",
+      "doc/assets/file",
+      "doc/assets/tuple_dict_str",
+      "doc/assets/introduction",
+      "doc/assets/cycle",
+      "doc/assets/installation",
+      "doc/assets/list",
+      "doc/assets/object_oriented",
+      "doc/assets/editor",
+      "codes/advanced_data_structures",
+      "codes/advanced_grammar",
+      "codes/cycle",
+      "codes/function",
+      "codes/python_basic",
+      "codes/card_manage",
+      "src/hello_python"
+    ],
+    "python_files": [
+      {
+        "path": "optimize_project.py",
+        "size_kb": 24.04
+      },
+      {
+        "path": "java_code_inspector/run_tests.py",
+        "size_kb": 0.76
+      },
+      {
+        "path": "java_code_inspector/tests/test_ java_inspector.py",
+        "size_kb": 8.91
+      },
+      {
+        "path": "java_code_inspector/tests/__init__.py",
+        "size_kb": 0.0
+      },
+      {
+        "path": "java_code_inspector/src/java_inspector.py",
+        "size_kb": 28.81
+      },
+      {
+        "path": "tests/test_basic.py",
+        "size_kb": 4.88
+      },
+      {
+        "path": "examples/basic_usage.py",
+        "size_kb": 4.98
+      },
+      {
+        "path": "scripts/quality_report.py",
+        "size_kb": 28.54
+      },
+      {
+        "path": "codes/advanced_data_structures/dictionary_traversal.py",
+        "size_kb": 0.34
+      },
+      {
+        "path": "codes/advanced_data_structures/format_string.py",
+        "size_kb": 0.3
+      },
+      {
+        "path": "codes/advanced_data_structures/string_definition_traversal.py",
+        "size_kb": 0.27
+      },
+      {
+        "path": "codes/advanced_data_structures/dictionary_basic_use.py",
+        "size_kb": 0.55
+      },
+      {
+        "path": "codes/advanced_data_structures/del _keyword.py",
+        "size_kb": 0.52
+      },
+      {
+        "path": "codes/advanced_data_structures/string_find_replace.py",
+        "size_kb": 0.71
+      },
+      {
+        "path": "codes/advanced_data_structures/string_statistical.py",
+        "size_kb": 0.47
+      },
+      {
+        "path": "codes/advanced_data_structures/string_judgment.py",
+        "size_kb": 0.46
+      },
+      {
+        "path": "codes/advanced_data_structures/iterating_dict_list.py",
+        "size_kb": 0.61
+      },
+      {
+        "path": "codes/advanced_data_structures/tuple_basic_use.py",
+        "size_kb": 0.38
+      },
+      {
+        "path": "codes/advanced_data_structures/list_statistics.py",
+        "size_kb": 0.51
+      },
+      {
+        "path": "codes/advanced_data_structures/list_basic_use.py",
+        "size_kb": 1.09
+      },
+      {
+        "path": "codes/advanced_data_structures/list_traversal.py",
+        "size_kb": 0.46
+      },
+      {
+        "path": "codes/advanced_data_structures/string_split_connect.py",
+        "size_kb": 0.46
+      },
+      {
+        "path": "codes/advanced_data_structures/tuple_traversal.py",
+        "size_kb": 0.37
+      },
+      {
+        "path": "codes/advanced_data_structures/string_alignment.py",
+        "size_kb": 0.48
+      },
+      {
+        "path": "codes/advanced_data_structures/dictionary_definition.py",
+        "size_kb": 0.27
+      },
+      {
+        "path": "codes/advanced_data_structures/dictionary_other_use.py",
+        "size_kb": 0.41
+      },
+      {
+        "path": "codes/advanced_data_structures/dictionary_application.py",
+        "size_kb": 0.5
+      },
+      {
+        "path": "codes/advanced_data_structures/list_sort.py",
+        "size_kb": 0.47
+      },
+      {
+        "path": "codes/advanced_grammar/unpack_tuple_dict.py",
+        "size_kb": 0.42
+      },
+      {
+        "path": "codes/advanced_grammar/swap_nums.py",
+        "size_kb": 0.32
+      },
+      {
+        "path": "codes/advanced_grammar/global_variables2.py",
+        "size_kb": 0.41
+      },
+      {
+        "path": "codes/advanced_grammar/global_variables.py",
+        "size_kb": 0.23
+      },
+      {
+        "path": "codes/advanced_grammar/update_global_variables.py",
+        "size_kb": 0.47
+      },
+      {
+        "path": "codes/advanced_grammar/func_modify_parameters.py",
+        "size_kb": 0.32
+      },
+      {
+        "path": "codes/advanced_grammar/quote.py",
+        "size_kb": 0.82
+      },
+      {
+        "path": "codes/advanced_grammar/global_variables_location.py",
+        "size_kb": 0.5
+      },
+      {
+        "path": "codes/advanced_grammar/parameter_passing.py",
+        "size_kb": 0.39
+      },
+      {
+        "path": "codes/advanced_grammar/recur_func_features.py",
+        "size_kb": 0.33
+      },
+      {
+        "path": "codes/advanced_grammar/notes_default_parameter.py",
+        "size_kb": 0.6
+      },
+      {
+        "path": "codes/advanced_grammar/local_variables.py",
+        "size_kb": 0.49
+      },
+      {
+        "path": "codes/advanced_grammar/define_func_default_parameter.py",
+        "size_kb": 0.47
+      },
+      {
+        "path": "codes/advanced_grammar/default_func_parameters.py",
+        "size_kb": 0.28
+      },
+      {
+        "path": "codes/advanced_grammar/global_variable_name.py",
+        "size_kb": 0.21
+      },
+      {
+        "path": "codes/advanced_grammar/recur_func_sum.py",
+        "size_kb": 0.46
+      },
+      {
+        "path": "codes/advanced_grammar/multi_parameters.py",
+        "size_kb": 0.34
+      },
+      {
+        "path": "codes/advanced_grammar/plus_equal.py",
+        "size_kb": 0.58
+      },
+      {
+        "path": "codes/advanced_grammar/multi_parameter_sum.py",
+        "size_kb": 0.28
+      },
+      {
+        "path": "codes/advanced_grammar/mult_return_values.py",
+        "size_kb": 0.69
+      },
+      {
+        "path": "codes/cycle/even_sum.py",
+        "size_kb": 0.36
+      },
+      {
+        "path": "codes/cycle/cycle.py",
+        "size_kb": 0.39
+      },
+      {
+        "path": "codes/cycle/multiplication_table.py",
+        "size_kb": 0.31
+      },
+      {
+        "path": "codes/cycle/print_end.py",
+        "size_kb": 0.39
+      },
+      {
+        "path": "codes/cycle/continue.py",
+        "size_kb": 0.49
+      },
+      {
+        "path": "codes/cycle/cycle_print_star.py",
+        "size_kb": 0.65
+      },
+      {
+        "path": "codes/cycle/sum.py",
+        "size_kb": 0.44
+      },
+      {
+        "path": "codes/cycle/escape_character.py",
+        "size_kb": 0.35
+      },
+      {
+        "path": "codes/cycle/print_star.py",
+        "size_kb": 0.33
+      },
+      {
+        "path": "codes/cycle/break.py",
+        "size_kb": 0.26
+      },
+      {
+        "path": "codes/function/experience_module.py",
+        "size_kb": 0.17
+      },
+      {
+        "path": "codes/function/first_func.py",
+        "size_kb": 0.33
+      },
+      {
+        "path": "codes/function/multiplication_table.py",
+        "size_kb": 0.37
+      },
+      {
+        "path": "codes/function/import_func.py",
+        "size_kb": 0.2
+      },
+      {
+        "path": "codes/function/divider_module.py",
+        "size_kb": 0.25
+      },
+      {
+        "path": "codes/function/first_func_refact.py",
+        "size_kb": 0.36
+      },
+      {
+        "path": "codes/function/print_line.py",
+        "size_kb": 0.16
+      },
+      {
+        "path": "codes/function/nested_func_calls.py",
+        "size_kb": 0.29
+      },
+      {
+        "path": "codes/function/print_multiple_line.py",
+        "size_kb": 0.26
+      },
+      {
+        "path": "codes/function/func_return_value.py",
+        "size_kb": 0.37
+      },
+      {
+        "path": "codes/function/function_parameters.py",
+        "size_kb": 0.27
+      },
+      {
+        "path": "codes/python_basic/comment.py",
+        "size_kb": 0.29
+      },
+      {
+        "path": "codes/python_basic/print.py",
+        "size_kb": 0.11
+      },
+      {
+        "path": "codes/card_manage/cards_main.py",
+        "size_kb": 1.19
+      },
+      {
+        "path": "codes/card_manage/cards_tools.py",
+        "size_kb": 4.03
+      },
+      {
+        "path": "src/hello_python/__init__.py",
+        "size_kb": 6.01
+      }
+    ],
+    "markdown_files": [
+      {
+        "path": "CHANGELOG.md",
+        "size_kb": 0.67
+      },
+      {
+        "path": "optimization_report_20260317_233438.md",
+        "size_kb": 1.38
+      },
+      {
+        "path": "README.md",
+        "size_kb": 2.73
+      },
+      {
+        "path": "CONTRIBUTING.md",
+        "size_kb": 2.0
+      },
+      {
+        "path": "java_code_inspector/README.md",
+        "size_kb": 7.87
+      },
+      {
+        "path": "docs/getting_started.md",
+        "size_kb": 4.46
+      },
+      {
+        "path": "doc/first_line.md",
+        "size_kb": 3.72
+      },
+      {
+        "path": "doc/object_oriented_basic.md",
+        "size_kb": 12.83
+      },
+      {
+        "path": "doc/variable.md",
+        "size_kb": 12.43
+      },
+      {
+        "path": "doc/tuple_dict_str.md",
+        "size_kb": 15.85
+      },
+      {
+        "path": "doc/01-异常.md",
+        "size_kb": 4.99
+      },
+      {
+        "path": "doc/文件操作.md",
+        "size_kb": 9.05
+      },
+      {
+        "path": "doc/judgment_statement.md",
+        "size_kb": 7.66
+      },
+      {
+        "path": "doc/02-模块_包.md",
+        "size_kb": 6.4
+      },
+      {
+        "path": "doc/function.md",
+        "size_kb": 9.06
+      },
+      {
+        "path": "doc/editor.md",
+        "size_kb": 7.32
+      },
+      {
+        "path": "doc/oop_advanced.md",
+        "size_kb": 8.85
+      },
+      {
+        "path": "doc/introduction.md",
+        "size_kb": 3.36
+      },
+      {
+        "path": "doc/oop_application.md",
+        "size_kb": 11.12
+      },
+      {
+        "path": "doc/list.md",
+        "size_kb": 4.58
+      },
+      {
+        "path": "doc/card_manage.md",
+        "size_kb": 9.22
+      },
+      {
+        "path": "doc/oop_encapsulation.md",
+        "size_kb": 5.77
+      },
+      {
+        "path": "doc/oop_inherit.md",
+        "size_kb": 11.18
+      },
+      {
+        "path": "doc/cycle.md",
+        "size_kb": 7.1
+      },
+      {
+        "path": "doc/installation.md",
+        "size_kb": 6.2
+      }
+    ],
+    "other_files": [
+      {
+        "path": "LICENSE",
+        "size_kb": 1.04,
+        "type": "unknown"
+      },
+      {
+        "path": "requirements.txt",
+        "size_kb": 0.11,
+        "type": "txt"
+      },
+      {
+        "path": ".pre-commit-config.yaml",
+        "size_kb": 0.64,
+        "type": "yaml"
+      },
+      {
+        "path": "Makefile",
+        "size_kb": 0.8,
+        "type": "unknown"
+      },
+      {
+        "path": "pyproject.toml",
+        "size_kb": 1.14,
+        "type": "toml"
+      },
+      {
+        "path": ".gitignore",
+        "size_kb": 3.4,
+        "type": "gitignore"
+      },
+      {
+        "path": "java_code_inspector/requirements.txt",
+        "size_kb": 0.09,
+        "type": "txt"
+      },
+      {
+        "path": "java_code_inspector/java-code-check.yaml",
+        "size_kb": 0.91,
+        "type": "yaml"
+      },
+      {
+        "path": "java_code_inspector/java_inspector_config.json",
+        "size_kb": 0.93,
+        "type": "json"
+      },
+      {
+        "path": "java_code_inspector/tests/test_config.json",
+        "size_kb": 0.35,
+        "type": "json"
+      },
+      {
+        "path": "java_code_inspector/tests/test_file/TestExample.java",
+        "size_kb": 1.53,
+        "type": "java"
+      },
+      {
+        "path": "java_code_inspector/tests/test_file/GoodExample.java",
+        "size_kb": 1.54,
+        "type": "java"
+      },
+      {
+        "path": "scripts/commit_and_push.sh",
+        "size_kb": 8.0,
+        "type": "sh"
+      },
+      {
+        "path": "doc/assets/card_management/img13.png",
+        "size_kb": 46.55,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/oop_inherit/1.png",
+        "size_kb": 94.33,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/oop_encapsulation/01.png",
+        "size_kb": 25.45,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/oop_encapsulation/03.png",
+        "size_kb": 36.71,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/oop_encapsulation/02.png",
+        "size_kb": 46.91,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/file/1.jpg",
+        "size_kb": 102.75,
+        "type": "jpg"
+      },
+      {
+        "path": "doc/assets/tuple_dict_str/img9.png",
+        "size_kb": 105.25,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/tuple_dict_str/img11.png",
+        "size_kb": 38.54,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/tuple_dict_str/img10.png",
+        "size_kb": 7.92,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/tuple_dict_str/img12.png",
+        "size_kb": 25.96,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/introduction/very_long_term_history.png",
+        "size_kb": 82.49,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/introduction/tiobe_index.png",
+        "size_kb": 188.69,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/introduction/programming_language_hall_of_fame.png",
+        "size_kb": 156.36,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/cycle/img5.jpg",
+        "size_kb": 42.12,
+        "type": "jpg"
+      },
+      {
+        "path": "doc/assets/installation/install_python_5.png",
+        "size_kb": 104.6,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/installation/python_download_page_2.png",
+        "size_kb": 384.68,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/installation/install_python_4.png",
+        "size_kb": 228.24,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/installation/install_python_6.png",
+        "size_kb": 292.93,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/installation/python_download_page_1.png",
+        "size_kb": 283.74,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/installation/install_python_7.png",
+        "size_kb": 242.14,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/installation/vs_build_tools_install.png",
+        "size_kb": 422.73,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/installation/install_python_3.png",
+        "size_kb": 165.41,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/installation/install_python_2.png",
+        "size_kb": 158.55,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/installation/install_python_1.png",
+        "size_kb": 165.96,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/installation/vs_build_tools_download.png",
+        "size_kb": 322.25,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/list/img8.png",
+        "size_kb": 20.88,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/list/img6.jpg",
+        "size_kb": 49.37,
+        "type": "jpg"
+      },
+      {
+        "path": "doc/assets/list/img7.png",
+        "size_kb": 9.58,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/object_oriented/01.png",
+        "size_kb": 588.57,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/object_oriented/02.png",
+        "size_kb": 230.01,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/editor/using_pycharm_8.png",
+        "size_kb": 68.89,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/editor/using_pycharm_1.png",
+        "size_kb": 67.15,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/editor/using_pycharm_2.png",
+        "size_kb": 125.04,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/editor/using_pycharm_3.png",
+        "size_kb": 176.42,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/editor/pycharm_download_page.png",
+        "size_kb": 305.42,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/editor/using_pycharm_7.png",
+        "size_kb": 353.86,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/editor/using_pycharm_6.png",
+        "size_kb": 282.13,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/editor/using_pycharm_4.png",
+        "size_kb": 235.6,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/editor/using_pycharm_5.png",
+        "size_kb": 217.32,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/editor/jupter_notebook.png",
+        "size_kb": 236.11,
+        "type": "png"
+      },
+      {
+        "path": "doc/assets/editor/visual_studio_code.png",
+        "size_kb": 489.85,
+        "type": "png"
+      }
+    ],
+    "total_files": 153,
+    "total_size_kb": 7561.5458984375
+  },
+  "python_quality": {
+    "total_python_files": 74,
+    "total_lines": 4846,
+    "files_with_issues": [
+      {
+        "file": "optimize_project.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%",
+          "行过长: [67, 272]"
+        ],
+        "line_count": 890
+      },
+      {
+        "file": "java_code_inspector/run_tests.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 31
+      },
+      {
+        "file": "java_code_inspector/tests/test_ java_inspector.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%",
+          "行过长: [104]"
+        ],
+        "line_count": 249
+      },
+      {
+        "file": "java_code_inspector/tests/__init__.py",
+        "issues": [
+          "缺少编码声明",
+          "缺少shebang或使用python3"
+        ],
+        "line_count": 1
+      },
+      {
+        "file": "java_code_inspector/src/java_inspector.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 43.3%",
+          "行过长: [275, 397, 439, 455, 474, 502, 507, 532, 568, 600]"
+        ],
+        "line_count": 754
+      },
+      {
+        "file": "tests/test_basic.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 169
+      },
+      {
+        "file": "examples/basic_usage.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 204
+      },
+      {
+        "file": "scripts/quality_report.py",
+        "issues": [
+          "缺少编码声明",
+          "行过长: [113, 238, 318, 343, 356, 363, 482, 546, 547, 548, 549, 739]"
+        ],
+        "line_count": 768
+      },
+      {
+        "file": "codes/advanced_data_structures/dictionary_traversal.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 16
+      },
+      {
+        "file": "codes/advanced_data_structures/format_string.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 15
+      },
+      {
+        "file": "codes/advanced_data_structures/string_definition_traversal.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 17
+      },
+      {
+        "file": "codes/advanced_data_structures/dictionary_basic_use.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 25
+      },
+      {
+        "file": "codes/advanced_data_structures/del _keyword.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 23
+      },
+      {
+        "file": "codes/advanced_data_structures/string_find_replace.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 27
+      },
+      {
+        "file": "codes/advanced_data_structures/string_statistical.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 21
+      },
+      {
+        "file": "codes/advanced_data_structures/string_judgment.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 24
+      },
+      {
+        "file": "codes/advanced_data_structures/iterating_dict_list.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 27
+      },
+      {
+        "file": "codes/advanced_data_structures/tuple_basic_use.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 19
+      },
+      {
+        "file": "codes/advanced_data_structures/list_statistics.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 21
+      },
+      {
+        "file": "codes/advanced_data_structures/list_basic_use.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 45
+      },
+      {
+        "file": "codes/advanced_data_structures/list_traversal.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 17
+      },
+      {
+        "file": "codes/advanced_data_structures/string_split_connect.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 20
+      },
+      {
+        "file": "codes/advanced_data_structures/tuple_traversal.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 18
+      },
+      {
+        "file": "codes/advanced_data_structures/string_alignment.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 20
+      },
+      {
+        "file": "codes/advanced_data_structures/dictionary_definition.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 17
+      },
+      {
+        "file": "codes/advanced_data_structures/dictionary_other_use.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 24
+      },
+      {
+        "file": "codes/advanced_data_structures/dictionary_application.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 21
+      },
+      {
+        "file": "codes/advanced_data_structures/list_sort.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 29
+      },
+      {
+        "file": "codes/advanced_grammar/unpack_tuple_dict.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 26
+      },
+      {
+        "file": "codes/advanced_grammar/swap_nums.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 27
+      },
+      {
+        "file": "codes/advanced_grammar/global_variables2.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 26
+      },
+      {
+        "file": "codes/advanced_grammar/global_variables.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 22
+      },
+      {
+        "file": "codes/advanced_grammar/update_global_variables.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 27
+      },
+      {
+        "file": "codes/advanced_grammar/func_modify_parameters.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 21
+      },
+      {
+        "file": "codes/advanced_grammar/quote.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 31
+      },
+      {
+        "file": "codes/advanced_grammar/global_variables_location.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 27
+      },
+      {
+        "file": "codes/advanced_grammar/parameter_passing.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 25
+      },
+      {
+        "file": "codes/advanced_grammar/recur_func_features.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 21
+      },
+      {
+        "file": "codes/advanced_grammar/notes_default_parameter.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 25
+      },
+      {
+        "file": "codes/advanced_grammar/local_variables.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 28
+      },
+      {
+        "file": "codes/advanced_grammar/define_func_default_parameter.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 20
+      },
+      {
+        "file": "codes/advanced_grammar/default_func_parameters.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 17
+      },
+      {
+        "file": "codes/advanced_grammar/global_variable_name.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 18
+      },
+      {
+        "file": "codes/advanced_grammar/recur_func_sum.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 25
+      },
+      {
+        "file": "codes/advanced_grammar/multi_parameters.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 18
+      },
+      {
+        "file": "codes/advanced_grammar/plus_equal.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 31
+      },
+      {
+        "file": "codes/advanced_grammar/multi_parameter_sum.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 24
+      },
+      {
+        "file": "codes/advanced_grammar/mult_return_values.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 32
+      },
+      {
+        "file": "codes/cycle/even_sum.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 20
+      },
+      {
+        "file": "codes/cycle/cycle.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 20
+      },
+      {
+        "file": "codes/cycle/multiplication_table.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 17
+      },
+      {
+        "file": "codes/cycle/print_end.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 13
+      },
+      {
+        "file": "codes/cycle/continue.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 24
+      },
+      {
+        "file": "codes/cycle/cycle_print_star.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 31
+      },
+      {
+        "file": "codes/cycle/sum.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 22
+      },
+      {
+        "file": "codes/cycle/escape_character.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 15
+      },
+      {
+        "file": "codes/cycle/print_star.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 22
+      },
+      {
+        "file": "codes/cycle/break.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 18
+      },
+      {
+        "file": "codes/function/experience_module.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 13
+      },
+      {
+        "file": "codes/function/first_func.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 17
+      },
+      {
+        "file": "codes/function/multiplication_table.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 18
+      },
+      {
+        "file": "codes/function/import_func.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 12
+      },
+      {
+        "file": "codes/function/divider_module.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 21
+      },
+      {
+        "file": "codes/function/first_func_refact.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 23
+      },
+      {
+        "file": "codes/function/print_line.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 13
+      },
+      {
+        "file": "codes/function/nested_func_calls.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 25
+      },
+      {
+        "file": "codes/function/print_multiple_line.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 22
+      },
+      {
+        "file": "codes/function/func_return_value.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 19
+      },
+      {
+        "file": "codes/function/function_parameters.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 17
+      },
+      {
+        "file": "codes/python_basic/comment.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 20
+      },
+      {
+        "file": "codes/python_basic/print.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 10
+      },
+      {
+        "file": "codes/card_manage/cards_main.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 43
+      },
+      {
+        "file": "codes/card_manage/cards_tools.py",
+        "issues": [
+          "缺少编码声明",
+          "类型提示覆盖率低: 0.0%"
+        ],
+        "line_count": 126
+      },
+      {
+        "file": "src/hello_python/__init__.py",
+        "issues": [
+          "缺少编码声明"
+        ],
+        "line_count": 242
+      }
+    ],
+    "type_hint_coverage": 0.0,
+    "docstring_coverage": 0,
+    "complexity_issues": []
+  },
+  "documentation": {
+    "markdown_files": [
+      {
+        "path": "CHANGELOG.md",
+        "size_kb": 0.67
+      },
+      {
+        "path": "optimization_report_20260317_233438.md",
+        "size_kb": 1.38
+      },
+      {
+        "path": "README.md",
+        "size_kb": 2.73
+      },
+      {
+        "path": "CONTRIBUTING.md",
+        "size_kb": 2.0
+      },
+      {
+        "path": "java_code_inspector/README.md",
+        "size_kb": 7.87
+      },
+      {
+        "path": "docs/getting_started.md",
+        "size_kb": 4.46
+      },
+      {
+        "path": "doc/first_line.md",
+        "size_kb": 3.72
+      },
+      {
+        "path": "doc/object_oriented_basic.md",
+        "size_kb": 12.83
+      },
+      {
+        "path": "doc/variable.md",
+        "size_kb": 12.43
+      },
+      {
+        "path": "doc/tuple_dict_str.md",
+        "size_kb": 15.85
+      },
+      {
+        "path": "doc/01-异常.md",
+        "size_kb": 4.99
+      },
+      {
+        "path": "doc/文件操作.md",
+        "size_kb": 9.05
+      },
+      {
+        "path": "doc/judgment_statement.md",
+        "size_kb": 7.66
+      },
+      {
+        "path": "doc/02-模块_包.md",
+        "size_kb": 6.4
+      },
+      {
+        "path": "doc/function.md",
+        "size_kb": 9.06
+      },
+      {
+        "path": "doc/editor.md",
+        "size_kb": 7.32
+      },
+      {
+        "path": "doc/oop_advanced.md",
+        "size_kb": 8.85
+      },
+      {
+        "path": "doc/introduction.md",
+        "size_kb": 3.36
+      },
+      {
+        "path": "doc/oop_application.md",
+        "size_kb": 11.12
+      },
+      {
+        "path": "doc/list.md",
+        "size_kb": 4.58
+      },
+      {
+        "path": "doc/card_manage.md",
+        "size_kb": 9.22
+      },
+      {
+        "path": "doc/oop_encapsulation.md",
+        "size_kb": 5.77
+      },
+      {
+        "path": "doc/oop_inherit.md",
+        "size_kb": 11.18
+      },
+      {
+        "path": "doc/cycle.md",
+        "size_kb": 7.1
+      },
+      {
+        "path": "doc/installation.md",
+        "size_kb": 6.2
+      }
+    ],
+    "readme_exists": true,
+    "contributing_exists": true,
+    "license_exists": true,
+    "changelog_exists": true,
+    "total_docs_size_kb": 182.244140625
+  },
+  "automation": {
+    "makefile_exists": true,
+    "precommit_exists": true,
+    "github_actions_exists": true,
+    "ci_cd_configured": true,
+    "testing_framework": "pytest"
+  },
+  "external_tools": {
+    "flake8": {
+      "installed": false,
+      "issues": []
+    },
+    "black": {
+      "installed": false,
+      "check_passed": false
+    },
+    "mypy": {
+      "installed": false,
+      "issues": []
+    }
+  }
+}
