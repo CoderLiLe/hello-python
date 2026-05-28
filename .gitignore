@@ -181,3 +181,9 @@ cython_debug/
 
 # opencode
 .opencode/
+
+# generated reports
+reports/
+
+# optimization reports
+optimization_report_*.md
