@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 class SweetPotato():
     def __init__(self):
         self.cook_time = 0

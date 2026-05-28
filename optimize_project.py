@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 项目优化脚本 - 用于完善和优化hello-python项目
 """
@@ -64,7 +65,9 @@ class ProjectOptimizer:
             issues = []
             
             # 检查编码声明
-            if not content.startswith('# -*- coding: utf-8 -*-') and not content.startswith('# coding: utf-8'):
+            has_enc = content.startswith('# -*- coding: utf-8 -*-')
+            has_enc = has_enc or content.startswith('# coding: utf-8')
+            if not has_enc:
                 issues.append("缺少编码声明")
                 
             # 检查shebang
@@ -269,7 +272,7 @@ clean:
 
 ![Python Version](https://img.shields.io/badge/python-3.9%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Last Updated](https://img.shields.io/badge/updated-{datetime.now().strftime('%Y-%m-%d')}-lightgrey)
+![Last Updated](https://img.shields.io/badge/updated-{datetime.now().strftime('%Y-%m-%d')}-lightgrey)  # noqa: E501
 
 Python学习与代码检查工具集 - 包含Python基础教程和Java代码检查工具
 

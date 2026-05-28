@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 class HouseItem():
     def __init__(self, name, area):
         self.name = name

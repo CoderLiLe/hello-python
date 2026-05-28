@@ -5,8 +5,6 @@ Tuple Traversal
 Python代码示例
 """
 
-from distutils.log import info
-
 
 info_tuple = ("宋江", "及时雨", "天魁星")
 

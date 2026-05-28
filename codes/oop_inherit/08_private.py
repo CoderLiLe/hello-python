@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 class Master(object):
     def __init__(self):
         self.kongfu = '[古法煎饼果子配方]'

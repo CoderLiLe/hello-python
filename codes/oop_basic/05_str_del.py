@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 class Washer():
     def __init__(self, width, height):
         self.width = width

@@ -110,7 +110,10 @@ class QualityAnalyzer:
                 file_issues = []
                 
                 # 检查编码声明
-                if not any(content.startswith(prefix) for prefix in ['# -*- coding: utf-8 -*-', '# coding: utf-8']):
+                has_encoding = any(
+                    content.startswith(p) for p in ['# -*- coding: utf-8 -*-', '# coding: utf-8']
+                )
+                if not has_encoding:
                     file_issues.append("缺少编码声明")
                 
                 # 检查shebang
@@ -235,7 +238,11 @@ class QualityAnalyzer:
             automation["ci_cd_configured"] = len(workflow_files) > 0
         
         # 检查测试框架
-        if (self.project_root / "pytest.ini").exists() or (self.project_root / "pyproject.toml").exists():
+        has_pytest = (
+            (self.project_root / "pytest.ini").exists()
+            or (self.project_root / "pyproject.toml").exists()
+        )
+        if has_pytest:
             automation["testing_framework"] = "pytest"
         elif (self.project_root / "tests").exists():
             automation["testing_framework"] = "unittest"
@@ -315,7 +322,8 @@ class QualityAnalyzer:
                         text=True
                     )
                     if mypy_result.stdout:
-                        tools["mypy"]["issues"] = mypy_result.stdout.strip().split('\n')[:10]  # 限制输出
+                        issues = mypy_result.stdout.strip().split('\n')
+                        tools["mypy"]["issues"] = issues[:10]
         
         except FileNotFoundError:
             pass
@@ -340,7 +348,10 @@ class QualityAnalyzer:
         structure = self.report_data.get("structure", {})
         if structure:
             required_dirs = ["src", "tests", "docs", "examples"]
-            existing_dirs = [d for d in required_dirs if any(d in dir_path for dir_path in structure["directories"])]
+            existing_dirs = [
+                d for d in required_dirs
+                if any(d in dir_path for dir_path in structure["directories"])
+            ]
             metrics["structure_score"] = len(existing_dirs) / len(required_dirs) * 100
         
         # 代码质量评分
@@ -353,14 +364,20 @@ class QualityAnalyzer:
         # 文档评分
         documentation = self.report_data.get("documentation", {})
         if documentation:
-            key_files = ["readme_exists", "contributing_exists", "license_exists", "changelog_exists"]
+            key_files = [
+                "readme_exists", "contributing_exists",
+                "license_exists", "changelog_exists"
+            ]
             existing_files = sum(1 for key in key_files if documentation.get(key, False))
             metrics["documentation_score"] = existing_files / len(key_files) * 100
         
         # 自动化评分
         automation = self.report_data.get("automation", {})
         if automation:
-            automation_items = ["makefile_exists", "precommit_exists", "github_actions_exists", "ci_cd_configured"]
+            automation_items = [
+                "makefile_exists", "precommit_exists",
+                "github_actions_exists", "ci_cd_configured"
+            ]
             existing_items = sum(1 for item in automation_items if automation.get(item, False))
             metrics["automation_score"] = existing_items / len(automation_items) * 100
         
@@ -479,7 +496,8 @@ class QualityAnalyzer:
         # 检查自动化问题
         automation = self.report_data.get("automation", {})
         if automation:
-            if not automation.get("testing_framework") or automation["testing_framework"] == "unknown":
+            tf = automation.get("testing_framework")
+            if not tf or tf == "unknown":
                 issues.append({
                     "type": "automation",
                     "severity": "medium",
@@ -736,7 +754,10 @@ def main():
     
     parser = argparse.ArgumentParser(description="项目质量检查报告生成器")
     parser.add_argument("--project", "-p", default=".", help="项目根目录路径")
-    parser.add_argument("--output", "-o", choices=["json", "markdown", "both"], default="both", help="输出格式")
+    parser.add_argument(
+        "--output", "-o", choices=["json", "markdown", "both"],
+        default="both", help="输出格式"
+    )
     parser.add_argument("--quiet", "-q", action="store_true", help="安静模式，减少输出")
     
     args = parser.parse_args()

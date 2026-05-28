@@ -5,9 +5,6 @@ List Sort
 Python代码示例
 """
 
-import re
-from unicodedata import name
-
 
 name_list = ["songjiang", "lujunyi", "wuyong", "gongsunsheng", "guansheng"]
 num_list = [6, 8, 4, 1, 10]

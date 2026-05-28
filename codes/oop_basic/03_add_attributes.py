@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 class Washer():
     def print_info(self):
         print(f'洗衣机的宽度是{self.width}')

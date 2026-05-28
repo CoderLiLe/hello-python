@@ -3,12 +3,12 @@
 .PHONY: help install test lint format clean
 
 help:
-	@echo "可用命令:"
-	@echo "  make install    安装依赖"
-	@echo "  make test       运行测试"
-	@echo "  make lint       代码检查"
-	@echo "  make format     代码格式化"
-	@echo "  make clean      清理临时文件"
+	@echo "Available commands:"
+	@echo "  make install    Install dependencies"
+	@echo "  make test       Run tests"
+	@echo "  make lint       Lint code"
+	@echo "  make format     Format code"
+	@echo "  make clean      Clean temp files"
 
 install:
 	pip install -e .
@@ -18,12 +18,12 @@ test:
 	pytest tests/ -v --cov=src --cov-report=html
 
 lint:
-	flake8 src/ tests/
+	flake8 src/ tests/ java_code_inspector/src/ --max-line-length=88 --exclude=codes/,doc/,docs/,examples/,scripts/,java_code_inspector/tests/test_file/
 	mypy src/
 
 format:
-	black src/ tests/
-	isort src/ tests/
+	black src/ tests/ java_code_inspector/src/
+	isort src/ tests/ java_code_inspector/src/
 
 clean:
 	find . -type f -name "*.pyc" -delete

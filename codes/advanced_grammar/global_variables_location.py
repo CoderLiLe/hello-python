@@ -12,10 +12,9 @@ num = 10
 
 def demo():
 
-
-	print("%d" % num)
-	print("%s" % s)
-	print("%d" % c)
+    print("%d" % num)
+    print("%s" % s)
+    print("%d" % c)
 
 # 再定义一个全局变量
 s = "hello python"

@@ -171,8 +171,8 @@ public class GoodExample {
     
     def test_predefined_test_files(self):
         """测试预定义的测试文件"""
-        test_file_path = os.path.join(os.path.dirname(__file__), 'test_files', 'TestExample.java')
-        good_file_path = os.path.join(os.path.dirname(__file__), 'test_files', 'GoodExample.java')
+        test_file_path = os.path.join(os.path.dirname(__file__), 'test_file', 'TestExample.java')
+        good_file_path = os.path.join(os.path.dirname(__file__), 'test_file', 'GoodExample.java')
         
         # 检查文件是否存在
         self.assertTrue(os.path.exists(test_file_path), "测试文件应该存在")

@@ -5,8 +5,6 @@ Multi Parameter Sum
 Python代码示例
 """
 
-import argparse
-
 
 def sum_numbers(*args):
 

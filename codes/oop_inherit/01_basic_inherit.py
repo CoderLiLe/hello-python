@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 class A(object):
     def __init__(self):
         self.num = 1
