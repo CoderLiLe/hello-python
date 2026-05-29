@@ -4,23 +4,20 @@
 支持多种代码规范检查、自动修复和多种报告格式
 """
 
-import javalang
+import copy
+import hashlib
+import json
 import os
 import re
-import json
-import xml.etree.ElementTree as ET
-from typing import List, Dict, Tuple
-from dataclasses import dataclass, asdict
-from pathlib import Path
-from enum import Enum
-import tempfile
 import subprocess
-import hashlib
+import tempfile
+import xml.etree.ElementTree as ET
+from dataclasses import asdict, dataclass
+from enum import Enum
+from pathlib import Path
+from typing import Dict, List, Tuple
 
-try:
-    import xmltodict
-except ImportError:
-    xmltodict = None
+import javalang
 
 try:
     from jinja2 import Template
@@ -93,7 +90,7 @@ class InspectionConfig:
             "ci_cd": {"fail_on_error": True, "max_warnings": 50, "quality_gate": 0.8},
         }
 
-        self.config = self.default_config.copy()
+        self.config = copy.deepcopy(self.default_config)
         if config_file and os.path.exists(config_file):
             self.load_config(config_file)
 
@@ -152,7 +149,6 @@ class JavaCodeInspector:
             self._check_empty_methods(tree, file_path)
             self._check_exception_handling(tree, file_path, content)
             self._check_magic_numbers(tree, file_path, content)
-            self._check_cyclomatic_complexity(tree, file_path)
 
             # 计算度量指标
             self._calculate_metrics(tree, file_path, content)
@@ -188,7 +184,7 @@ class JavaCodeInspector:
                     if self._is_excluded(file_path):
                         continue
                     issues = self.inspect_file(file_path)
-                    results[file_path] = issues
+                    results[file_path] = list(issues)
 
         return results
 
@@ -215,10 +211,12 @@ class JavaCodeInspector:
 
         for path, node in tree:
             if isinstance(node, javalang.tree.Import):
-                import_name = node.path or ""
-                simple_name = import_name.split(".")[-1]
                 if node.wildcard:
                     continue
+                import_name = node.path or ""
+                if not import_name:
+                    continue
+                simple_name = import_name.split(".")[-1]
                 if simple_name not in used_names:
                     self.issues.append(
                         CodeIssue(
@@ -279,11 +277,40 @@ class JavaCodeInspector:
                         )
                     )
             elif isinstance(node, javalang.tree.FieldDeclaration):
+                is_constant = "static" in node.modifiers and "final" in node.modifiers
                 for declarator in node.declarators:
-                    if (
+                    if is_constant:
+                        if not all(
+                            c.isupper() or c == "_" for c in declarator.name
+                        ):
+                            self.issues.append(
+                                CodeIssue(
+                                    file_path=file_path,
+                                    line=(
+                                        declarator.position.line
+                                        if declarator.position
+                                        else 0
+                                    ),
+                                    column=(
+                                        declarator.position.column
+                                        if declarator.position
+                                        else 0
+                                    ),
+                                    message=(
+                                        f"常量 '{declarator.name}'"
+                                        " 应使用 CONSTANT_CASE（全大写+下划线）"
+                                    ),
+                                    severity=Severity.WARNING,
+                                    rule_id="CONSTANT_NAMING",
+                                    category="STYLE",
+                                )
+                            )
+                    elif (
                         declarator.name
                         and declarator.name[0].isupper()
-                        and not all(c.isupper() or c == "_" for c in declarator.name)
+                        and not all(
+                            c.isupper() or c == "_" for c in declarator.name
+                        )
                     ):
                         self.issues.append(
                             CodeIssue(
@@ -306,14 +333,12 @@ class JavaCodeInspector:
                         )
 
     def _check_code_style(self, tree, file_path: str, content: str):
-        """检查代码风格（行长度等）"""
-        if not self.config.is_rule_enabled("line_length"):
-            return
-
+        """检查代码风格（行长度、尾随空格等）"""
         max_length = self.config.get_rule_config("line_length").get("max_length", 120)
+        check_length = self.config.is_rule_enabled("line_length")
         lines = content.split("\n")
         for i, line in enumerate(lines, 1):
-            if len(line) > max_length:
+            if check_length and len(line) > max_length:
                 self.issues.append(
                     CodeIssue(
                         file_path=file_path,
@@ -327,42 +352,108 @@ class JavaCodeInspector:
                         fix_suggestion="拆分长行为多行",
                     )
                 )
+            if line != line.rstrip():
+                self.issues.append(
+                    CodeIssue(
+                        file_path=file_path,
+                        line=i,
+                        column=len(line.rstrip()),
+                        message="行尾存在多余空格",
+                        severity=Severity.INFO,
+                        rule_id="TRAILING_WHITESPACE",
+                        category="STYLE",
+                        fixable=True,
+                        fix_suggestion="删除行尾空格",
+                    )
+                )
 
     def _check_method_complexity(self, tree, file_path: str, content: str):
         """检查方法复杂度"""
-        if not self.config.is_rule_enabled("method_complexity"):
-            return
-
-        max_complexity = self.config.get_rule_config("method_complexity").get(
+        max_method = self.config.get_rule_config("method_complexity").get(
             "max_complexity", 10
         )
+        max_cyclo = self.config.get_rule_config("cyclomatic_complexity").get(
+            "max_complexity", 15
+        )
+        check_method = self.config.is_rule_enabled("method_complexity")
+        check_cyclo = self.config.is_rule_enabled("cyclomatic_complexity")
+        if not check_method and not check_cyclo:
+            return
 
-        for _, node in tree:
-            if isinstance(node, javalang.tree.MethodDeclaration):
-                branch_count = 0
-                for _, child in tree.filter(javalang.tree.IfStatement):
-                    branch_count += 1
-                for _, child in tree.filter(javalang.tree.ForStatement):
-                    branch_count += 1
-                for _, child in tree.filter(javalang.tree.WhileStatement):
-                    branch_count += 1
-                for _, child in tree.filter(javalang.tree.SwitchStatement):
-                    branch_count += 1
-                complexity = branch_count + 1
-                if complexity > max_complexity:
-                    self.issues.append(
-                        CodeIssue(
-                            file_path=file_path,
-                            line=node.position.line if node.position else 0,
-                            column=node.position.column if node.position else 0,
-                            message=f"方法复杂度: {complexity} (建议 ≤{max_complexity})",
-                            severity=Severity.WARNING,
-                            rule_id="METHOD_COMPLEXITY",
-                            category="COMPLEXITY",
-                            fixable=True,
-                            fix_suggestion="考虑重构方法，降低复杂度",
-                        )
+        for _, method in tree.filter(javalang.tree.MethodDeclaration):
+            branch_count = 0
+            cyclo = 1
+
+            def walk(node, _branch_count, _cyclo):
+                try:
+                    if isinstance(
+                        node,
+                        (
+                            javalang.tree.IfStatement,
+                            javalang.tree.WhileStatement,
+                            javalang.tree.ForStatement,
+                        ),
+                    ):
+                        _branch_count += 1
+                    if isinstance(
+                        node,
+                        (
+                            javalang.tree.IfStatement,
+                            javalang.tree.WhileStatement,
+                            javalang.tree.ForStatement,
+                            javalang.tree.SwitchStatement,
+                            javalang.tree.CatchClause,
+                            javalang.tree.TernaryExpression,
+                        ),
+                    ):
+                        _cyclo += 1
+                    children = getattr(node, "children", None) or []
+                    for child in children:
+                        if isinstance(child, (list, tuple)):
+                            for item in child:
+                                if hasattr(item, "children"):
+                                    _branch_count, _cyclo = walk(
+                                        item, _branch_count, _cyclo
+                                    )
+                        elif hasattr(child, "children"):
+                            _branch_count, _cyclo = walk(
+                                child, _branch_count, _cyclo
+                            )
+                except Exception:
+                    pass
+                return _branch_count, _cyclo
+
+            try:
+                branch_count, cyclo = walk(method, branch_count, cyclo)
+            except Exception:
+                pass
+
+            if check_method and branch_count > max_method:
+                self.issues.append(
+                    CodeIssue(
+                        file_path=file_path,
+                        line=method.position.line if method.position else 0,
+                        column=method.position.column if method.position else 0,
+                        message=f"方法圈复杂度: {branch_count} (建议 ≤{max_method})",
+                        severity=Severity.WARNING,
+                        rule_id="METHOD_COMPLEXITY",
+                        category="COMPLEXITY",
+                        fixable=True,
+                        fix_suggestion="考虑重构方法，降低复杂度",
                     )
+                )
+            if check_cyclo and cyclo > max_cyclo:
+                self.issues.append(
+                    CodeIssue(
+                        file_path=file_path,
+                        line=method.position.line if method.position else 0,
+                        column=method.position.column if method.position else 0,
+                        message=f"圈复杂度过高: {cyclo} (建议 ≤{max_cyclo})",
+                        severity=Severity.WARNING,
+                        rule_id="HIGH_CYCLOMATIC_COMPLEXITY",
+                        category="COMPLEXITY",
+                    )
+                )
 
     def _check_class_design(self, tree, file_path: str):
         """检查类设计"""
@@ -388,7 +479,7 @@ class JavaCodeInspector:
         """检查最佳实践"""
         lines = content.split("\n")
         for i, line in enumerate(lines, 1):
-            if "System.out.print" in line or "System.err.print" in line:
+            if re.search(r"System\.(out|err)\.(print|println|printf)", line):
                 self.issues.append(
                     CodeIssue(
                         file_path=file_path,
@@ -434,7 +525,15 @@ class JavaCodeInspector:
         for type_decl in tree.types:
             for decl in type_decl.body:
                 if isinstance(decl, javalang.tree.MethodDeclaration):
-                    if not decl.body or not decl.body.statements:
+                    body = decl.body
+                    is_empty = body is None
+                    if not is_empty:
+                        if isinstance(body, list):
+                            statements = body
+                        else:
+                            statements = getattr(body, "statements", None)
+                        is_empty = statements is None or len(statements) == 0
+                    if is_empty:
                         self.issues.append(
                             CodeIssue(
                                 file_path=file_path,
@@ -454,23 +553,22 @@ class JavaCodeInspector:
         if not self.config.is_rule_enabled("exception_handling"):
             return
 
-        # 检查空的catch块
-        lines = content.split("\n")
-        for i, line in enumerate(lines, 1):
-            if re.search(r"catch\s*\([^)]+\)\s*\{\s*\}", line):
-                self.issues.append(
-                    CodeIssue(
-                        file_path=file_path,
-                        line=i,
-                        column=0,
-                        message="空的catch块，应该至少记录异常",
-                        severity=Severity.WARNING,
-                        rule_id="EMPTY_CATCH",
-                        category="EXCEPTION",
-                        fixable=True,
-                        fix_suggestion="添加异常处理逻辑",
-                    )
+        pattern = re.compile(r"catch\s*\([^)]+\)\s*\{[\s\n]*\}", re.DOTALL)
+        for match in pattern.finditer(content):
+            line_num = content[:match.start()].count("\n") + 1
+            self.issues.append(
+                CodeIssue(
+                    file_path=file_path,
+                    line=line_num,
+                    column=0,
+                    message="空的catch块，应该至少记录异常",
+                    severity=Severity.WARNING,
+                    rule_id="EMPTY_CATCH",
+                    category="EXCEPTION",
+                    fixable=True,
+                    fix_suggestion="添加异常处理逻辑",
                 )
+            )
 
     def _check_magic_numbers(self, tree, file_path: str, content: str):
         """检查魔法数字"""
@@ -501,61 +599,6 @@ class JavaCodeInspector:
                             ),
                         )
                     )
-
-    def _check_cyclomatic_complexity(self, tree, file_path: str):
-        """检查圈复杂度"""
-        if not self.config.is_rule_enabled("cyclomatic_complexity"):
-            return
-
-        max_complexity = self.config.get_rule_config("cyclomatic_complexity").get(
-            "max_complexity", 15
-        )
-
-        def calculate_cyclomatic_complexity(method):
-            complexity = 1
-
-            def count_decisions(node):
-                nonlocal complexity
-                if isinstance(
-                    node,
-                    (
-                        javalang.tree.IfStatement,
-                        javalang.tree.WhileStatement,
-                        javalang.tree.ForStatement,
-                        javalang.tree.SwitchStatement,
-                        javalang.tree.CatchClause,
-                        javalang.tree.ConditionalExpression,
-                    ),
-                ):
-                    complexity += 1
-
-                for child in node.children:
-                    if isinstance(child, (list, tuple)):
-                        for item in child:
-                            if hasattr(item, "children"):
-                                count_decisions(item)
-                    elif hasattr(child, "children"):
-                        count_decisions(child)
-
-            count_decisions(method)
-            return complexity
-
-        for type_decl in tree.types:
-            for decl in type_decl.body:
-                if isinstance(decl, javalang.tree.MethodDeclaration):
-                    complexity = calculate_cyclomatic_complexity(decl)
-                    if complexity > max_complexity:
-                        self.issues.append(
-                            CodeIssue(
-                                file_path=file_path,
-                                line=decl.position.line if decl.position else 0,
-                                column=decl.position.column if decl.position else 0,
-                                message=f"圈复杂度过高: {complexity} (建议≤{max_complexity})",
-                                severity=Severity.WARNING,
-                                rule_id="HIGH_CYCLOMATIC_COMPLEXITY",
-                                category="COMPLEXITY",
-                            )
-                        )
 
     def _check_duplicate_code(self, directory_path: str):
         """检查重复代码"""
@@ -639,14 +682,14 @@ class JavaCodeInspector:
             issues = self.inspect_file(file_path)
             fixable_issues = [issue for issue in issues if issue.fixable]
 
+            fixable_issues.sort(key=lambda x: x.line, reverse=True)
             for issue in fixable_issues:
                 if issue.rule_id == "UNUSED_IMPORT" and self.config.config[
                     "auto_fix"
                 ].get("unused_imports", False):
-                    # 删除未使用的import
                     line_to_remove = issue.line - 1
                     if 0 <= line_to_remove < len(lines):
-                        lines[line_to_remove] = ""  # 置空行
+                        lines.pop(line_to_remove)
                         modified = True
                         fixed_issues.append(issue)
 
@@ -969,7 +1012,7 @@ exit 0
     ).stdout.strip()
     hook_path = os.path.join(git_dir, "hooks", "pre-commit")
 
-    with open(hook_path, "w") as f:
+    with open(hook_path, "w", encoding="utf-8") as f:
         f.write(hook_content)
 
     os.chmod(hook_path, 0o755)
@@ -1020,13 +1063,18 @@ def main():
         return
 
     # 代码检查
-    if os.path.isfile(args.path) and args.path.endswith(".java"):
+    if os.path.isfile(args.path):
+        if not args.path.endswith(".java"):
+            print(f"警告: '{args.path}' 不是Java文件，尝试解析...")
         issues = inspector.inspect_file(args.path)
         issues_by_file = {args.path: issues}
     elif os.path.isdir(args.path):
         issues_by_file = inspector.inspect_directory(args.path)
+        if not issues_by_file:
+            print(f"警告: 目录 '{args.path}' 中没有找到Java文件")
+            return
     else:
-        print("错误: 请输入有效的Java文件或目录路径")
+        print(f"错误: 路径不存在: {args.path}")
         return
 
     # 生成报告

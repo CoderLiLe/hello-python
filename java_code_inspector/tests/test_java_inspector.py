@@ -8,62 +8,57 @@ import os
 import tempfile
 import shutil
 import json
-from pathlib import Path
 
-# 添加src目录到Python路径
 import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
-from java_inspector import JavaCodeInspector, InspectionConfig, CodeIssue, Severity
+from java_inspector import (
+    JavaCodeInspector,
+    InspectionConfig,
+    InspectionReporter,
+    CICDIntegrator,
+    CodeIssue,
+    CodeMetrics,
+    Severity,
+    ReportFormat,
+)
+
 
 class TestJavaCodeInspector(unittest.TestCase):
     """Java代码检查器测试类"""
-    
+
     def setUp(self):
-        """测试前准备"""
         self.test_dir = tempfile.mkdtemp()
         self.config = InspectionConfig()
         self.inspector = JavaCodeInspector(self.config)
-        
-        # 创建测试文件
         self.create_test_files()
-    
+
     def tearDown(self):
-        """测试后清理"""
         shutil.rmtree(self.test_dir)
-    
+
     def create_test_files(self):
-        """创建测试文件"""
-        # 有问题的测试文件
         bad_code = '''import java.util.List;
 import java.util.ArrayList;
-import java.util.HashMap; // 未使用的import
-import java.io.*; // 未使用的import
+import java.util.HashMap;
+import java.io.*;
 
-public class testExample { // 类名不规范
-    private int BadlyNamedField; // 字段名不规范
-    
-    public void BadlyNamedMethod() { // 方法名不规范
-        System.out.println("Hello"); // 不应该使用System.out
+public class testExample {
+    private int BadlyNamedField;
+
+    public void BadlyNamedMethod() {
+        System.out.println("Hello");
         List<String> list = new ArrayList<>();
-        
-        // 魔法数字
         int result = 100 * 2;
-        
-        // 空的catch块
         try {
             int test = 10 / 0;
         } catch (Exception e) {
-            // 空的catch块
         }
     }
-    
-    public void emptyMethod() { // 空方法
+
+    public void emptyMethod() {
     }
 }
 '''
-        
-        # 良好的测试文件
         good_code = '''import java.util.List;
 import java.util.ArrayList;
 import java.util.logging.Logger;
@@ -71,159 +66,266 @@ import java.util.logging.Logger;
 public class GoodExample {
     private static final Logger LOGGER = Logger.getLogger(GoodExample.class.getName());
     private static final int MAX_RETRY = 3;
-    
+
     private String properlyNamedField;
-    
+
     public void properlyNamedMethod() {
         LOGGER.info("Proper method");
     }
 }
 '''
-        
-        # 写入文件
+
         with open(os.path.join(self.test_dir, 'TestExample.java'), 'w', encoding='utf-8') as f:
             f.write(bad_code)
-        
+
         with open(os.path.join(self.test_dir, 'GoodExample.java'), 'w', encoding='utf-8') as f:
             f.write(good_code)
-    
+
     def test_inspect_file_with_issues(self):
-        """测试检查有问题的文件"""
         file_path = os.path.join(self.test_dir, 'TestExample.java')
         issues = self.inspector.inspect_file(file_path)
-        
-        # 应该发现问题
+
         self.assertGreater(len(issues), 0)
-        
-        # 检查特定问题类型
         issue_types = [issue.rule_id for issue in issues]
-        print(f"发现的问题类型: {issue_types}")
-        
-        # 检查一些常见问题
         has_unused_import = any(issue.rule_id == 'UNUSED_IMPORT' for issue in issues)
-        has_naming_issue = any(issue.rule_id in ['CLASS_NAMING', 'METHOD_NAMING'] for issue in issues)
-        
+        has_naming = any(issue.rule_id in ('CLASS_NAMING', 'METHOD_NAMING') for issue in issues)
+
         self.assertTrue(has_unused_import, "应该检测到未使用的import")
-        self.assertTrue(has_naming_issue, "应该检测到命名问题")
-    
+        self.assertTrue(has_naming, "应该检测到命名问题")
+
     def test_inspect_good_file(self):
-        """测试检查良好的文件"""
         file_path = os.path.join(self.test_dir, 'GoodExample.java')
         issues = self.inspector.inspect_file(file_path)
-        
-        # 良好代码应该没有严重问题
-        severe_issues = [issue for issue in issues if issue.severity == Severity.ERROR]
-        self.assertEqual(len(severe_issues), 0, "良好代码不应该有严重错误")
-    
+        severe_issues = [i for i in issues if i.severity == Severity.ERROR]
+        self.assertEqual(len(severe_issues), 0)
+
     def test_inspect_directory(self):
-        """测试检查目录"""
         issues_by_file = self.inspector.inspect_directory(self.test_dir)
-        
-        # 应该找到两个文件
-        self.assertEqual(len(issues_by_file), 2, "应该检测到两个文件")
-        
-        # 测试文件应该有更多问题
-        test_file_path = os.path.join(self.test_dir, 'TestExample.java')
-        good_file_path = os.path.join(self.test_dir, 'GoodExample.java')
-        
-        test_file_issues = issues_by_file.get(test_file_path, [])
-        good_file_issues = issues_by_file.get(good_file_path, [])
-        
-        self.assertGreater(len(test_file_issues), len(good_file_issues), 
+        self.assertEqual(len(issues_by_file), 2)
+
+        test_path = os.path.join(self.test_dir, 'TestExample.java')
+        good_path = os.path.join(self.test_dir, 'GoodExample.java')
+        test_issues = issues_by_file[test_path]
+        good_issues = issues_by_file[good_path]
+        self.assertGreater(len(test_issues), len(good_issues),
                           "问题文件应该比良好文件有更多问题")
-    
+
     def test_config_disabled_rules(self):
-        """测试禁用规则"""
-        # 创建禁用某些规则的配置
-        config_data = {
-            "rules": {
-                "unused_imports": {"enabled": False},
-                "naming_conventions": {"enabled": False}
-            }
-        }
-        
+        config_data = {"rules": {"unused_imports": {"enabled": False}}}
         config_file = os.path.join(self.test_dir, 'test_config.json')
         with open(config_file, 'w', encoding='utf-8') as f:
             json.dump(config_data, f)
-        
+
         config = InspectionConfig(config_file)
         inspector = JavaCodeInspector(config)
-        
         file_path = os.path.join(self.test_dir, 'TestExample.java')
         issues = inspector.inspect_file(file_path)
-        
-        # 应该不包含被禁用的规则的问题
         issue_rules = [issue.rule_id for issue in issues]
-        self.assertNotIn('UNUSED_IMPORT', issue_rules, "未使用的import检查应该被禁用")
-        
+        self.assertNotIn('UNUSED_IMPORT', issue_rules)
+
     def test_empty_method_detection(self):
-        """测试空方法检测"""
-        # 启用空方法检测
         config = InspectionConfig()
         config.config['rules']['empty_methods'] = {"enabled": True}
-        
         inspector = JavaCodeInspector(config)
         file_path = os.path.join(self.test_dir, 'TestExample.java')
         issues = inspector.inspect_file(file_path)
-        
-        empty_method_issues = [issue for issue in issues if issue.rule_id == 'EMPTY_METHOD']
-        self.assertGreaterEqual(len(empty_method_issues), 1, "应该检测到空方法")
-    
+        empty = [i for i in issues if i.rule_id == 'EMPTY_METHOD']
+        self.assertGreaterEqual(len(empty), 1)
+
+    def test_magic_number_detection(self):
+        code = 'class Foo { int x = 42; int y = 100; }'
+        with tempfile.NamedTemporaryFile(suffix='.java', mode='w', delete=False, encoding='utf-8') as f:
+            f.write(code)
+            tmp = f.name
+        try:
+            issues = self.inspector.inspect_file(tmp)
+            magic = [i for i in issues if i.rule_id == 'MAGIC_NUMBER']
+            self.assertGreaterEqual(len(magic), 1)
+        finally:
+            os.unlink(tmp)
+
+    def test_exception_handling_detection(self):
+        code = 'class Foo { void bar() { try {} catch (Exception e) {} } }'
+        with tempfile.NamedTemporaryFile(suffix='.java', mode='w', delete=False, encoding='utf-8') as f:
+            f.write(code)
+            tmp = f.name
+        try:
+            issues = self.inspector.inspect_file(tmp)
+            empty_catch = [i for i in issues if i.rule_id == 'EMPTY_CATCH']
+            self.assertGreaterEqual(len(empty_catch), 1)
+        finally:
+            os.unlink(tmp)
+
+    def test_multiline_empty_catch_detection(self):
+        code = '''class Foo {
+    void bar() {
+        try {
+            bar();
+        } catch (Exception e) {
+        }
+    }
+}'''
+        with tempfile.NamedTemporaryFile(suffix='.java', mode='w', delete=False, encoding='utf-8') as f:
+            f.write(code)
+            tmp = f.name
+        try:
+            issues = self.inspector.inspect_file(tmp)
+            empty_catch = [i for i in issues if i.rule_id == 'EMPTY_CATCH']
+            self.assertGreaterEqual(len(empty_catch), 1,
+                                    "应该检测到多行空catch块")
+        finally:
+            os.unlink(tmp)
+
+    def test_system_out_detection(self):
+        code = 'class Foo { void bar() { System.out.println("test"); } }'
+        with tempfile.NamedTemporaryFile(suffix='.java', mode='w', delete=False, encoding='utf-8') as f:
+            f.write(code)
+            tmp = f.name
+        try:
+            issues = self.inspector.inspect_file(tmp)
+            sys_out = [i for i in issues if i.rule_id == 'AVOID_SYSTEM_OUT']
+            self.assertGreaterEqual(len(sys_out), 1)
+        finally:
+            os.unlink(tmp)
+
+    def test_system_out_printf_detection(self):
+        code = 'class Foo { void bar() { System.out.printf("%s", "x"); } }'
+        with tempfile.NamedTemporaryFile(suffix='.java', mode='w', delete=False, encoding='utf-8') as f:
+            f.write(code)
+            tmp = f.name
+        try:
+            issues = self.inspector.inspect_file(tmp)
+            sys_out = [i for i in issues if i.rule_id == 'AVOID_SYSTEM_OUT']
+            self.assertGreaterEqual(len(sys_out), 1,
+                                    "应该检测到 System.out.printf")
+        finally:
+            os.unlink(tmp)
+
+    def test_line_length_detection(self):
+        long_line = '// ' + 'x' * 180
+        code = f'''class Foo {{
+    void bar() {{
+        {long_line}
+    }}
+}}'''
+        with tempfile.NamedTemporaryFile(suffix='.java', mode='w', delete=False, encoding='utf-8') as f:
+            f.write(code)
+            tmp = f.name
+        try:
+            issues = self.inspector.inspect_file(tmp)
+            length_issues = [i for i in issues if i.rule_id == 'LINE_LENGTH']
+            self.assertGreaterEqual(len(length_issues), 1)
+        finally:
+            os.unlink(tmp)
+
+    def test_trailing_whitespace_detection(self):
+        code = 'class Foo {    \n    void bar() { } }   \n'
+        with tempfile.NamedTemporaryFile(suffix='.java', mode='w', delete=False, encoding='utf-8') as f:
+            f.write(code)
+            tmp = f.name
+        try:
+            issues = self.inspector.inspect_file(tmp)
+            ws = [i for i in issues if i.rule_id == 'TRAILING_WHITESPACE']
+            self.assertGreaterEqual(len(ws), 1)
+        finally:
+            os.unlink(tmp)
+
+    def test_constant_naming_detection(self):
+        code = 'class Foo { public static final int badConstant = 42; }'
+        with tempfile.NamedTemporaryFile(suffix='.java', mode='w', delete=False, encoding='utf-8') as f:
+            f.write(code)
+            tmp = f.name
+        try:
+            issues = self.inspector.inspect_file(tmp)
+            naming = [i for i in issues if i.rule_id == 'CONSTANT_NAMING']
+            self.assertGreaterEqual(len(naming), 1,
+                                    "static final 字段应使用 CONSTANT_CASE")
+        finally:
+            os.unlink(tmp)
+
+    def test_constant_naming_ok_no_flag(self):
+        code = '''class Foo {
+    public static final int GOOD_CONSTANT = 42;
+    private static final int ANOTHER_CONST = 100;
+}'''
+        with tempfile.NamedTemporaryFile(suffix='.java', mode='w', delete=False, encoding='utf-8') as f:
+            f.write(code)
+            tmp = f.name
+        try:
+            issues = self.inspector.inspect_file(tmp)
+            naming = [i for i in issues if i.rule_id == 'CONSTANT_NAMING']
+            self.assertEqual(len(naming), 0,
+                             "CONSTANT_CASE 常量不应触发 CONSTANT_NAMING")
+        finally:
+            os.unlink(tmp)
+
     def test_predefined_test_files(self):
-        """测试预定义的测试文件"""
         test_file_path = os.path.join(os.path.dirname(__file__), 'test_file', 'TestExample.java')
         good_file_path = os.path.join(os.path.dirname(__file__), 'test_file', 'GoodExample.java')
-        
-        # 检查文件是否存在
-        self.assertTrue(os.path.exists(test_file_path), "测试文件应该存在")
-        self.assertTrue(os.path.exists(good_file_path), "良好代码文件应该存在")
-        
-        # 检查测试文件
+
+        self.assertTrue(os.path.exists(test_file_path))
+        self.assertTrue(os.path.exists(good_file_path))
+
         issues = self.inspector.inspect_file(test_file_path)
-        self.assertGreater(len(issues), 0, "测试文件应该有问题")
-        
-        # 检查良好文件
+        self.assertGreater(len(issues), 0)
+
         issues = self.inspector.inspect_file(good_file_path)
-        severe_issues = [issue for issue in issues if issue.severity == Severity.ERROR]
-        self.assertEqual(len(severe_issues), 0, "良好文件不应该有严重错误")
+        severe = [i for i in issues if i.severity == Severity.ERROR]
+        self.assertEqual(len(severe), 0)
+
+
+    def test_auto_fix_issues(self):
+        code = 'import java.util.List;\nimport java.util.ArrayList;\npublic class Foo {}\n'
+        with tempfile.NamedTemporaryFile(suffix='.java', mode='w', delete=False, encoding='utf-8') as f:
+            f.write(code)
+            tmp = f.name
+        try:
+            config = InspectionConfig()
+            config.config['auto_fix']['unused_imports'] = True
+            inspector = JavaCodeInspector(config)
+            fixed = inspector.auto_fix_issues(tmp)
+            unused = [i for i in fixed if i.rule_id == 'UNUSED_IMPORT']
+            self.assertGreaterEqual(len(unused), 1, "应自动修复未使用的import")
+            with open(tmp, encoding='utf-8') as f:
+                content = f.read()
+            self.assertNotIn('import java.util.List;', content,
+                             "修复后不应包含未使用的 import")
+            self.assertNotIn('import java.util.ArrayList;', content,
+                             "修复后不应包含未使用的 import")
+        finally:
+            os.unlink(tmp)
+
 
 class TestInspectionConfig(unittest.TestCase):
-    """配置类测试"""
-    
     def test_default_config(self):
-        """测试默认配置"""
         config = InspectionConfig()
-        
-        # 检查默认启用的规则
         self.assertTrue(config.is_rule_enabled('line_length'))
         self.assertTrue(config.is_rule_enabled('naming_conventions'))
         self.assertTrue(config.is_rule_enabled('unused_imports'))
-        
-        # 检查默认配置值
-        line_config = config.get_rule_config('line_length')
-        self.assertEqual(line_config.get('max_length'), 120)
-    
+        self.assertEqual(config.get_rule_config('line_length').get('max_length'), 120)
+
     def test_custom_config(self):
-        """测试自定义配置"""
-        # 使用测试目录中的配置文件
         config_file = os.path.join(os.path.dirname(__file__), 'test_config.json')
-        self.assertTrue(os.path.exists(config_file), "测试配置文件应该存在")
-        
+        self.assertTrue(os.path.exists(config_file))
+
         config = InspectionConfig(config_file)
-        
-        # 检查配置覆盖
         self.assertTrue(config.is_rule_enabled('line_length'))
         self.assertFalse(config.is_rule_enabled('naming_conventions'))
-        
-        # 检查配置值
-        line_config = config.get_rule_config('line_length')
-        self.assertEqual(line_config.get('max_length'), 80)
+        self.assertEqual(config.get_rule_config('line_length').get('max_length'), 80)
 
-class TestBasicFunctionality(unittest.TestCase):
-    """基本功能测试"""
-    
+    def test_deep_copy_isolation(self):
+        config = InspectionConfig()
+        original = config.config['rules']['line_length']['max_length']
+        config.config['rules']['line_length']['max_length'] = 999
+        self.assertEqual(config.default_config['rules']['line_length']['max_length'], original)
+
+    def test_invalid_config_file(self):
+        config = InspectionConfig('/nonexistent/path.json')
+        self.assertTrue(config.is_rule_enabled('line_length'))
+
+
+class TestCodeIssue(unittest.TestCase):
     def test_issue_creation(self):
-        """测试问题创建"""
         issue = CodeIssue(
             file_path="test.java",
             line=10,
@@ -233,17 +335,161 @@ class TestBasicFunctionality(unittest.TestCase):
             rule_id="TEST_RULE",
             category="TEST"
         )
-        
         self.assertEqual(issue.file_path, "test.java")
         self.assertEqual(issue.line, 10)
         self.assertEqual(issue.message, "测试问题")
         self.assertEqual(issue.severity, Severity.WARNING)
-    
+        self.assertFalse(issue.fixable)
+        self.assertEqual(issue.fix_suggestion, "")
+
     def test_severity_enum(self):
-        """测试严重程度枚举"""
         self.assertEqual(Severity.ERROR.value, "ERROR")
         self.assertEqual(Severity.WARNING.value, "WARNING")
         self.assertEqual(Severity.INFO.value, "INFO")
+
+    def test_report_format_enum(self):
+        self.assertEqual(ReportFormat.TEXT.value, "text")
+        self.assertEqual(ReportFormat.JSON.value, "json")
+        self.assertEqual(ReportFormat.XML.value, "xml")
+        self.assertEqual(ReportFormat.HTML.value, "html")
+        self.assertEqual(ReportFormat.CSV.value, "csv")
+
+    def test_issue_fixable_default(self):
+        issue = CodeIssue("f.java", 1, 0, "msg", Severity.INFO, "R1", "C")
+        self.assertFalse(issue.fixable)
+
+    def test_issue_with_fix_suggestion(self):
+        issue = CodeIssue("f.java", 1, 0, "msg", Severity.INFO, "R1", "C",
+                          fixable=True, fix_suggestion="suggestion")
+        self.assertTrue(issue.fixable)
+        self.assertEqual(issue.fix_suggestion, "suggestion")
+
+
+class TestCodeMetrics(unittest.TestCase):
+    def test_default_metrics(self):
+        m = CodeMetrics()
+        self.assertEqual(m.total_lines, 0)
+        self.assertEqual(m.code_lines, 0)
+        self.assertEqual(m.comment_lines, 0)
+        self.assertEqual(m.method_count, 0)
+        self.assertEqual(m.class_count, 0)
+        self.assertEqual(m.cyclomatic_complexity, 0)
+        self.assertEqual(m.duplication_rate, 0.0)
+        self.assertEqual(m.code_smells, 0)
+
+    def test_metrics_assignment(self):
+        m = CodeMetrics()
+        m.total_lines = 100
+        m.code_lines = 60
+        m.comment_lines = 20
+        m.method_count = 5
+        m.class_count = 2
+        self.assertEqual(m.total_lines, 100)
+        self.assertEqual(m.code_lines, 60)
+
+
+class TestInspectionReporter(unittest.TestCase):
+    def setUp(self):
+        self.issues_by_file = {
+            "/path/to/Test.java": [
+                CodeIssue("/path/to/Test.java", 5, 3, "测试问题1", Severity.WARNING, "R1", "STYLE"),
+                CodeIssue("/path/to/Test.java", 10, 1, "测试问题2", Severity.ERROR, "R2", "BUG"),
+            ]
+        }
+
+    def test_text_report(self):
+        report = InspectionReporter.generate_text_report(self.issues_by_file)
+        self.assertIn("测试问题1", report)
+        self.assertIn("测试问题2", report)
+        self.assertIn("WARNING", report)
+        self.assertIn("ERROR", report)
+
+    def test_json_report(self):
+        report = InspectionReporter.generate_json_report(self.issues_by_file)
+        data = json.loads(report)
+        self.assertEqual(data['summary']['total_issues'], 2)
+        self.assertIn("/path/to/Test.java", data['files'])
+
+    def test_csv_report(self):
+        report = InspectionReporter.generate_csv_report(self.issues_by_file)
+        self.assertIn("File,Line,Column,Severity", report)
+        self.assertIn("测试问题1", report)
+        self.assertIn("测试问题2", report)
+
+    def test_xml_report(self):
+        report = InspectionReporter.generate_xml_report(self.issues_by_file)
+        self.assertIn("<codeInspection>", report)
+        self.assertIn("R1", report)
+        self.assertIn("R2", report)
+
+    def test_report_routing(self):
+        text = InspectionReporter.generate_report(self.issues_by_file, ReportFormat.TEXT)
+        self.assertIsInstance(text, str)
+        self.assertIn("测试问题1", text)
+
+        js = InspectionReporter.generate_report(self.issues_by_file, ReportFormat.JSON)
+        self.assertIn("total_issues", js)
+
+    def test_report_to_file(self):
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.txt', delete=False, encoding='utf-8') as f:
+            out = f.name
+        try:
+            InspectionReporter.generate_text_report(self.issues_by_file, output_file=out)
+            with open(out, encoding='utf-8') as f:
+                content = f.read()
+            self.assertIn("测试问题1", content)
+        finally:
+            os.unlink(out)
+
+
+class TestCICDIntegrator(unittest.TestCase):
+    def test_pass_with_no_issues(self):
+        config = InspectionConfig()
+        ci = CICDIntegrator(config)
+        result = ci.check_quality_gate({})
+        self.assertTrue(result)
+        self.assertEqual(ci.get_exit_code(), 0)
+
+    def test_fail_on_error(self):
+        config = InspectionConfig()
+        ci = CICDIntegrator(config)
+        issues = {
+            "test.java": [
+                CodeIssue("test.java", 1, 0, "err", Severity.ERROR, "E1", "BUG")
+            ]
+        }
+        result = ci.check_quality_gate(issues)
+        self.assertFalse(result)
+        self.assertEqual(ci.get_exit_code(), 1)
+
+    def test_pass_with_warnings_below_limit(self):
+        config = InspectionConfig()
+        config.config['ci_cd']['max_warnings'] = 10
+        ci = CICDIntegrator(config)
+        issues = {
+            "test.java": [
+                CodeIssue("test.java", 1, 0, "warn", Severity.WARNING, "W1", "STYLE")
+                for _ in range(5)
+            ]
+        }
+        result = ci.check_quality_gate(issues)
+        self.assertTrue(result)
+        self.assertEqual(ci.get_exit_code(), 0)
+
+    def test_fail_with_too_many_warnings(self):
+        config = InspectionConfig()
+        config.config['ci_cd']['max_warnings'] = 3
+        ci = CICDIntegrator(config)
+        issues = {
+            "test.java": [
+                CodeIssue("test.java", 1, 0, "warn", Severity.WARNING, "W1", "STYLE")
+                for _ in range(5)
+            ]
+        }
+        result = ci.check_quality_gate(issues)
+        self.assertFalse(result)
+        self.assertEqual(ci.get_exit_code(), 1)
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

@@ -32,7 +32,7 @@ java_code_inspector/
 ├── tests/
 │   ├── __init__.py
 │   ├── test_java_inspector.py
-│   ├── test_files/
+│   ├── test_file/
 │   │   ├── TestExample.java
 │   │   └── GoodExample.java
 │   └── test_config.json
