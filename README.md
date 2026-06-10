@@ -1,122 +1,85 @@
-# Hello Python 🐍
+# Hello Python
 
-![Python Version](https://img.shields.io/badge/python-3.9%2B-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
-![Last Updated](https://img.shields.io/badge/updated-2026-03-17-lightgrey)
+Python 学习资源 — 从入门到进阶的完整学习路径。
 
-Python学习与代码检查工具集 - 包含Python基础教程和Java代码检查工具
+## 快速开始
 
-## ✨ 特性
-
-### Python学习教程
-- 📚 完整的Python基础教程
-- 💻 丰富的代码示例
-- 🎯 从入门到进阶的学习路径
-- 📝 详细的文档说明
-
-### Java代码检查工具
-- 🔍 静态代码分析
-- ✅ 代码质量检查
-- 🛠️ 自动修复功能
-- 📊 多种报告格式
-
-## 🚀 快速开始
-
-### 安装
 ```bash
-# 克隆项目
 git clone https://github.com/CoderLiLe/hello-python.git
 cd hello-python
+pip install -e .
 
-# 安装依赖
-pip install -r requirements.txt
+# 查看学习路径
+hello-python list
+
+# 运行第一个示例
+hello-python run stage01_basic
 ```
 
-### 使用Python教程
+## 学习路径
+
+| 阶段 | 内容 |
+|------|------|
+| stage01 | Python基础 — 注释、print |
+| stage02 | 循环 — while/for、break/continue |
+| stage03 | 函数 — 定义、参数、返回值、模块化 |
+| stage04 | 高级语法 — 全局变量、递归、拆包 |
+| stage05 | 数据结构 — 列表、元组、字典、字符串 |
+| stage06 | 面向对象基础 — 类、对象、init、str |
+| stage07 | 面向对象高级 — 多态、类属性、staticmethod |
+| stage08 | 继承 — 单继承、多继承、super |
+| stage09 | 封装 — 属性封装、对象组合 |
+| stage10 | OOP应用 — 扑克牌、工资系统 |
+| stage11 | 综合项目 — 名片管理系统 |
+
+## 使用方式
+
+### CLI
+
 ```bash
-# 查看教程文档
-cd doc/
-# 打开对应的markdown文件学习
+hello-python list              # 列出所有阶段
+hello-python show stage03      # 查看阶段详情
+hello-python run stage01       # 运行阶段代码
+hello-python check             # 检查环境
 ```
 
-### 使用Java代码检查工具
-```bash
-cd java_code_inspector/
-python src/java_inspector.py --help
+### Python API
+
+```python
+from hello_python.lessons.index import get_stage, get_ordered_stages
+from hello_python.runner import run_stage
+
+for stage in get_ordered_stages():
+    print(stage["name"])
 ```
 
-## 📁 项目结构
+### 教程文档
+
+`doc/` 目录包含每个阶段的中文教程，配合代码示例学习效果最佳。
+
+## 项目结构
 
 ```
 hello-python/
-├── src/                    # 源代码
-├── tests/                  # 测试代码
-├── docs/                   # 文档
-├── examples/               # 示例代码
-├── scripts/                # 脚本工具
-├── config/                 # 配置文件
-├── codes/                  # Python代码示例
-├── doc/                    # 学习文档
-├── java_code_inspector/    # Java代码检查工具
-├── pyproject.toml          # 项目配置
-├── requirements.txt        # 依赖列表
-├── Makefile               # 构建命令
-└── README.md              # 项目说明
+├── src/hello_python/
+│   ├── cli.py              # CLI 入口
+│   ├── runner.py           # 代码运行器
+│   └── lessons/            # 11 个学习阶段
+├── doc/                    # 中文教程文档
+├── tests/                  # 测试
+├── examples/               # 使用示例
+└── scripts/                # 工具脚本
 ```
 
-## 🔧 开发
+## 开发
 
-### 代码质量
 ```bash
-# 安装开发依赖
 pip install -r requirements.txt
-
-# 运行测试
-make test
-
-# 代码检查
-make lint
-
-# 代码格式化
-make format
+make test    # 运行测试
+make lint    # 代码检查
+make format  # 代码格式化
 ```
 
-### 预提交钩子
-```bash
-# 安装pre-commit
-pip install pre-commit
-pre-commit install
+## 许可
 
-# 手动运行所有钩子
-pre-commit run --all-files
-```
-
-## 🤝 贡献
-
-欢迎贡献！请查看 [CONTRIBUTING.md](CONTRIBUTING.md) 了解详情。
-
-## 📄 许可证
-
-本项目基于 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
-
-## 📞 联系
-
-- GitHub: [@CoderLiLe](https://github.com/CoderLiLe)
-- 项目地址: https://github.com/CoderLiLe/hello-python
-
----
-
-# Python
-
-## 笔记目录
-* [初识Python](doc/introduction.md)
-* [安装Python环境](doc/installation.md)
-* [编辑器的选择](doc/editor.md)
-* [第一行代码](doc/first_line.md)
-* [变量](doc/variable.md)
-* [判断语句](doc/judgment_statement.md)
-* [循环](doc/cycle.md)
-* [函数](doc/function.md)
-* [列表](doc/list.md)
-* [元组字典字符串](doc/tuple_dict_str.md)
-* [综合应用--名片管理系统](doc/card_management.md)
+MIT
