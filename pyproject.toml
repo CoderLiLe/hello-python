@@ -24,6 +24,9 @@ classifiers = [
 requires-python = ">=3.9"
 dependencies = []
 
+[project.scripts]
+hello-python = "hello_python.cli:main"
+
 [project.optional-dependencies]
 dev = [
     "black>=23.0",
