@@ -18,7 +18,7 @@ test:
 	pytest tests/ -v --cov=src --cov-report=html
 
 lint:
-	flake8 src/ tests/ --max-line-length=88 --exclude=codes/,doc/,docs/,examples/,scripts/
+	flake8 src/ tests/ --max-line-length=88 --exclude=doc/,docs/,examples/,scripts/
 	mypy src/
 
 format:
