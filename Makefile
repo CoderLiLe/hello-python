@@ -18,17 +18,16 @@ test:
 	pytest tests/ -v --cov=src --cov-report=html
 
 lint:
-	flake8 src/ tests/ java_code_inspector/src/ --max-line-length=88 --exclude=codes/,doc/,docs/,examples/,scripts/,java_code_inspector/tests/test_file/
+	flake8 src/ tests/ --max-line-length=88 --exclude=codes/,doc/,docs/,examples/,scripts/
 	mypy src/
 
 format:
-	black src/ tests/ java_code_inspector/src/
-	isort src/ tests/ java_code_inspector/src/
+	black src/ tests/
+	isort src/ tests/
 
 clean:
 	find . -type f -name "*.pyc" -delete
 	find . -type d -name "__pycache__" -delete
 	find . -type d -name "*.egg-info" -exec rm -rf {} +
 	find . -type d -name ".pytest_cache" -exec rm -rf {} +
-	find . -type d -name ".coverage" -exec rm -rf {} +
-	find . -type d -name "htmlcov" -exec rm -rf {} +
+	rm -rf .coverage htmlcov
