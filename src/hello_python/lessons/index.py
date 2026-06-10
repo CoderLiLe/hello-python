@@ -1,7 +1,7 @@
 """学习路径索引 — 定义所有学习阶段及其文件列表"""
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Any
 
-STAGES: List[Dict] = [
+STAGES: List[Dict[str, Any]] = [
     {
         "id": "stage01_basic",
         "name": "Python基础",

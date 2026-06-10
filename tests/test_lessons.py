@@ -1,11 +1,9 @@
 import pytest
-import sys
 from pathlib import Path
 
-# 确保 lessons 在 path 中
-sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
-
 from hello_python.lessons.index import STAGES, get_stage, list_stages, get_ordered_stages
+
+LESSONS_DIR = Path(__file__).parent.parent / "src" / "hello_python" / "lessons"
 
 
 class TestIndex:
@@ -18,11 +16,18 @@ class TestIndex:
             assert "id" in stage
             assert "name" in stage
             assert "description" in stage
+            assert "requires" in stage
             assert "files" in stage
 
     def test_stage_ids_are_unique(self):
         ids = [s["id"] for s in STAGES]
         assert len(ids) == len(set(ids))
+
+    def test_requires_refer_to_existing_stages(self):
+        all_ids = {s["id"] for s in STAGES}
+        for stage in STAGES:
+            for req in stage.get("requires", []):
+                assert req in all_ids, f"{stage['id']} requires unknown stage '{req}'"
 
     def test_get_stage_valid(self):
         stage = get_stage("stage01_basic")
@@ -41,14 +46,15 @@ class TestIndex:
     def test_get_ordered_stages_respects_requires(self):
         ordered = get_ordered_stages()
         assert len(ordered) == 11
-        # stage01 应该在最前面（无前置依赖）
-        assert ordered[0]["id"] == "stage01_basic"
+        ids = [s["id"] for s in ordered]
+        assert ids[0] == "stage01_basic"
+        assert ids.index("stage08_oop_inherit") < ids.index("stage10_oop_application")
+        assert ids.index("stage09_oop_encapsulation") < ids.index("stage10_oop_application")
 
     def test_all_files_exist(self):
         """验证索引中引用的所有文件都存在"""
-        lessons_dir = Path(__file__).parent.parent / "src" / "hello_python" / "lessons"
         for stage in STAGES:
-            stage_dir = lessons_dir / stage["id"]
+            stage_dir = LESSONS_DIR / stage["id"]
             assert stage_dir.is_dir(), f"Directory missing: {stage['id']}"
             for filename in stage["files"]:
                 filepath = stage_dir / filename
@@ -60,9 +66,8 @@ class TestCompileAll:
 
     @pytest.mark.parametrize("stage", STAGES)
     def test_stage_files_compile(self, stage):
-        lessons_dir = Path(__file__).parent.parent / "src" / "hello_python" / "lessons"
         for filename in stage["files"]:
-            filepath = lessons_dir / stage["id"] / filename
+            filepath = LESSONS_DIR / stage["id"] / filename
             with open(filepath, "r", encoding="utf-8") as f:
                 source = f.read()
             compile(source, str(filepath), "exec")
