@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hello-python"
-version = "1.0.0"
-description = "Python学习与代码检查工具集"
+version = "1.1.0"
+description = "Python 学习资源"
 readme = "README.md"
 authors = [
     {name = "CoderLiLe"}
@@ -23,6 +23,9 @@ classifiers = [
 ]
 requires-python = ">=3.9"
 dependencies = []
+
+[project.scripts]
+hello-python = "hello_python.cli:main"
 
 [project.optional-dependencies]
 dev = [
@@ -48,7 +51,6 @@ python_version = "3.9"
 warn_return_any = true
 warn_unused_configs = true
 exclude = [
-    "codes/",
     "doc/",
     "docs/",
     "examples/",
@@ -57,7 +59,7 @@ exclude = [
 
 [tool.flake8]
 max-line-length = 88
-exclude = ["codes/", "doc/", "docs/", "examples/", "scripts/", "java_code_inspector/tests/test_file/"]
+exclude = ["doc/", "docs/", "examples/", "scripts/"]
 extend-ignore = ["E203", "W503"]
 
 [tool.pytest.ini_options]
